@@ -2,7 +2,6 @@
 ___
 # Description
 The Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
-
 ___
 
 # Stacks
@@ -11,7 +10,6 @@ ___
 * Vanilla Javascript
 * Pivotal Tracker Tool for Project Management ( Link: https://www.pivotaltracker.com/n/projects/2171607 )
  
-
 ___
 
 # Features
