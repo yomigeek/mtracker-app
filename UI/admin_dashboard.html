@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>M-Tracker - DashBoard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+    <body>
+        <div class="topnav">
+            <p>M-Tracker</p>
+            
+            <a href="login.html">Logout</a>
+            <a href="#">Profile</a>
+            <a href="user_dashboard.html">Home</a>
+            <a href="#"><i class="material-icons notify-icon">mms</i><b class="notify-count">2</b></a>
+
+        </div>
+        <p >
+            <h4  class="dashboard-heading">Admin Dashboard</h4>
+            <p>
+                    <img src="./assets/images/profile_photo.png" class="profile-photo" />
+            </p>
+            <h5 class="welcome-msg" >Welcome Admin,</h5>
+        </p>
+        <h4 class="resolved-request-header"><img src="./assets/images/log-icon.png" class="resolved-request-header-photo"/> New Requests</h4>
+        <p class="form-footer">
+                
+            Also view: <a href="admin_dashboard.html" class="formLinkColor">.. 1. My Requests...</a>
+            <a href="admin_pending_dashboard.html" class="formLinkColor">..2. Pending Requests...</a>
+            <a href="admin_cancelled_dashboard.html" class="formLinkColor">..3. Cancelled Requests...</a>
+           
+         </p>
+    
+        <div align="center">
+          <input type="text" id="myFilter" onkeyup="myFilterTableFunction()" placeholder="Filter by names,ID,title..." title="Type in a name">
+        </div>
+
+        <table id="request-table">
+                <thead>
+                  <tr>
+                    <th>S/N</th>
+                    <th>Requester</th>
+                    <th>Request ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Priority</th>
+                    <th>Action</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-column="S/N">1</td>
+                    <td data-column="Requester">Matman</td>
+                    <td data-column="Requester ID">2356</td>
+                    <td data-column="Title">AC bad</td>                    
+                    <td data-column="Description">The matman request</td>
+                    <td data-column="Date">2018-16-05</td>
+                    <td data-column="Priority">High</td>
+                    <td data-column="Action"><a href="view_request_admin.html"><button class="view-button" onclick=" ">View Request</button></a></td>
+
+                  </tr>
+                  <tr>
+                      <td data-column="S/N">2</td>
+                      <td data-column="Requester">Yomi</td>
+                      <td data-column="Requester ID">456</td>
+                      <td data-column="Title">Bulb bad</td>                    
+                      <td data-column="Description">The yomi request</td>
+                      <td data-column="Date">2017-16-05</td>
+                      <td data-column="Priority">High</td>
+                      <td data-column="Action"><a href="view_request_admin.html"><button class="view-button" onclick=" ">View Request</button></a></td>
+  
+                    </tr>
+                 
+                </tbody>
+              </table>
+        
+        <p class="footer">© 2018. M-tracker.</p>
+       
+        <script src="./assets/js/script.js">
+            
+        </script>
+
+    </body>
+</html>
