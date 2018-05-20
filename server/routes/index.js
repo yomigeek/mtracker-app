@@ -18,6 +18,8 @@ routes.get('/users/requests', UserRequestController.getAllRequests);
 routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
 // Get a user request detail
 routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
+// Modify Request details by requestId
+routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
 
 
 export default routes;
