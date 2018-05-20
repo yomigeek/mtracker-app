@@ -6,10 +6,10 @@ ___
 
 ## Table of Contents
 
- * [Technology Stacks](#technology stacks)
+ * [Technologies](#technologies)
  * [Features](#features)
 
-### Technology Stacks
+### Technologies
 * HyperText Mark-up Language (HTML)
 * Cascade Style Sheet (CSS)
 * Vanilla Javascript
