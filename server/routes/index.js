@@ -1,6 +1,6 @@
 import express from 'express';
 import UserRequestController from '../controllers/UserRequestController';
-// import Validate from '../validations/Validate';
+import Validate from '../validations/Validate';
 
 const routes = express.Router();
 
@@ -14,5 +14,8 @@ routes.get('/', (req, res) => res.status(200).send({
 
 // Get all requests in the dummy data
 routes.get('/users/requests', UserRequestController.getAllRequests);
+// Create Request to a dummy data
+routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
+
 
 export default routes;
