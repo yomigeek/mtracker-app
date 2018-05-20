@@ -51,6 +51,29 @@ class UserRequestController {
       },
     });
   }
+
+  static editRequest(req, res) {
+    const findQuery = (requestFinder => requestFinder.id == req.params.requestId);
+    const findARequest = requests.find(findQuery);
+    if (!findARequest) {
+      return res.status(404).json({
+
+        status: 'fail',
+        message: 'Request not found!',
+      });
+    }
+    findARequest.title = req.body.title;
+    findARequest.description = req.body.description;
+    findARequest.priority = req.body.priority;
+    return res.status(201).json({
+
+      status: 'success',
+      message: 'Request updated successfully!',
+      data: {
+        requests: findARequest,
+      },
+    });
+  }
 }
 
 export default UserRequestController;
