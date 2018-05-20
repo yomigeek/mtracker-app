@@ -1,24 +1,45 @@
 # My-MTracker-App
 ___
-# Description
+## Description
 The Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
 ___
 
-# Stacks
+## Table of Contents
+
+ * [Technologies](#technologies)
+ * [Features](#features)
+
+### Technologies
 * HyperText Mark-up Language (HTML)
 * Cascade Style Sheet (CSS)
 * Vanilla Javascript
-* Pivotal Tracker Tool for Project Management ( Link: https://www.pivotaltracker.com/n/projects/2171607 )
  
-___
+### Pivotal Tracker
+The Maintenance Tracker App Project is currently managed with the Pivotal Tracker Project Management Tool.
+You can find the project management board on (https://www.pivotaltracker.com/n/projects/2171607)
 
-# Features
+### Template
+Application User Interface Template is hosted at (https://yomigeek.github.io/mtracker-app/UI/)
 
-1. Application homepage
-2. User login and sign-up pages
-3. Admin login page
-4. Admin and User dashboard pages
-5. Request details pages for admin and users
-6. Edit form for requests
+### Features
+
+#### Users
+* Application Homepage
+* Signup and Login
+* Create Request Page
+* Edit Request Page
+* Resolved Requests Page
+* Pending Requests Page
+* Declined Requests Page
+* Main Dashboard Page
+
+#### Admin
+* Application Homepage
+* Login
+* Main Dashboard
+* Resolved Requests Page
+* Declined Requests Page
+* Pending Requests Page
+* Confirm Request Page
 
 
