@@ -31,6 +31,26 @@ class UserRequestController {
       },
     });
   }
+
+  static getRequestByRequestId(req, res) {
+    const findByIdQuery = requestFinder => requestFinder.id == req.params.requestId;
+    const findARequest = requests.find(findByIdQuery);
+    if (!findARequest) {
+      return res.status(404).json({
+
+        status: 'fail',
+        message: 'Request not found!',
+      });
+    }
+    return res.status(200).json({
+
+      status: 'success',
+      message: 'Request found',
+      data: {
+        requests: findARequest,
+      },
+    });
+  }
 }
 
 export default UserRequestController;

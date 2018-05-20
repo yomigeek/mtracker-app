@@ -16,6 +16,8 @@ routes.get('/', (req, res) => res.status(200).send({
 routes.get('/users/requests', UserRequestController.getAllRequests);
 // Create Request to a dummy data
 routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
+// Get a user request detail
+routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 
 
 export default routes;
