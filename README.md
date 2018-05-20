@@ -1,13 +1,13 @@
 # My-MTracker-App
-___
+
 ## Description
 The Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
-___
 
 ## Table of Contents
 
  * [Technologies](#technologies)
  * [Features](#features)
+ * [Installation](#installation)
 
 ### Technologies
 * HyperText Mark-up Language (HTML)
@@ -41,5 +41,80 @@ Application User Interface Template is hosted at (https://yomigeek.github.io/mtr
 * Declined Requests Page
 * Pending Requests Page
 * Confirm Request Page
+
+
+## Non-Persistent Data API Endpoints
+
+###
+
+<table>
+
+<tr><th>HTTP VERB</th><th>ENDPOINT</th><th>TASK</th></tr>
+
+<tr><td>POST</td> <td>api/v1/users/requests</td> <td>Create A Request</td></tr>
+
+<tr><td>GET</td> <td>api/v1/users/requests</td> <td>Get All User Requests</td></tr>
+
+<tr><td>GET</td> <td>api/v1/users/requests/:requestId</td> <td>Get An Existing Request Detail by Request Id</td></tr>
+
+<tr><td>PUT</td> <td>api/v1/users/requests/:requestId</td>  <td> Modify an  Existing Request Detail By Request Id</td></tr>
+
+</table>
+
+## Getting Started
+
+### Installation 
+
+* Create a folder on your computer and navigate to the folder using your terminal
+* git clone https://github.com/yomigeek/mtracker-app.git
+* Run `npm install` to install packages and dependencies
+* Run `npm run start` to start the server
+* Navigate to http://localhost:5000/ on your browser to have access to the M-Tracker application
+
+#### Prerequisites
+
+* To try out the endpoints, use the POSTMAN API Toolchain, visit https://getpostman.com
+
+#### Testing with Postman
+
+* After successful installation as stated above
+* Navigate to http://localhost:5000/ on the Postman App
+* Try out any of the API endpoints
+* Enjoy! 
+
+#### Create A Request /api/v1/users/requests
+
+To create a request, post the following parameters
+
+NB: All fields are required and priority can either be low, medium or high
+
+```
+{
+   title: "computers",
+   description: "faulty",
+   prority: "low"
+}
+
+```
+
+#### Get All Requests /api/v1/users/requests
+Send a get request method to /api/v1/users/requests
+
+#### Get Request detail by Id /api/v1/users/requests/:requestId
+Send a get request method to /api/v1/users/requests/requestId
+
+#### Modify a Request by Id /api/v1/users/requests/:requestId
+Send a put request method to /api/v1/users/requests/requestId with the following parameters
+
+NB: All fields are required and priority can either be low, medium or high
+
+```
+{
+   title: "computers",
+   description: "faulty",
+   prority: "low"
+}
+
+```
 
 
