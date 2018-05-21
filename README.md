@@ -1,6 +1,7 @@
 # My-MTracker-App
 [![Build Status](https://travis-ci.org/yomigeek/mtracker-app.svg?branch=ch-travis-ci-implementation-157687480)](https://travis-ci.org/yomigeek/mtracker-app) [![Coverage Status](https://coveralls.io/repos/github/yomigeek/mtracker-app/badge.svg?branch=ch-coveralls-implementation-157738024)](https://coveralls.io/github/yomigeek/mtracker-app?branch=ch-coveralls-implementation-157738024) [![Maintainability](https://api.codeclimate.com/v1/badges/78fc5727a7bace58a50d/maintainability)](https://codeclimate.com/github/yomigeek/mtracker-app/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/78fc5727a7bace58a50d/test_coverage)](https://codeclimate.com/github/yomigeek/mtracker-app/test_coverage)
 
+
 ## Description
 The Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
 
