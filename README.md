@@ -1,4 +1,5 @@
 # My-MTracker-App
+[![Build Status](https://travis-ci.org/yomigeek/mtracker-app.svg?branch=ch-travis-ci-implementation-157687480)](https://travis-ci.org/yomigeek/mtracker-app) [![Coverage Status](https://coveralls.io/repos/github/yomigeek/mtracker-app/badge.svg?branch=ch-coveralls-implementation-157738024)](https://coveralls.io/github/yomigeek/mtracker-app?branch=ch-coveralls-implementation-157738024) [![Maintainability](https://api.codeclimate.com/v1/badges/78fc5727a7bace58a50d/maintainability)](https://codeclimate.com/github/yomigeek/mtracker-app/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/78fc5727a7bace58a50d/test_coverage)](https://codeclimate.com/github/yomigeek/mtracker-app/test_coverage)
 
 ## Description
 The Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
@@ -43,7 +44,30 @@ Application User Interface Template is hosted at (https://yomigeek.github.io/mtr
 * Confirm Request Page
 
 
+## API Endpoints 
+
+* Demo API Endpoints are hosted at: https://mtrackerapp.herokuapp.com/
+
+* Persistent API Endpoints are hosted at: https://mtrack-app.herokuapp.com/
+
+
 ## Non-Persistent Data API Endpoints
+
+###
+
+<table>
+
+<tr><th>HTTP VERB</th><th>ENDPOINT</th><th>TASK</th></tr>
+
+<tr><td>POST</td> <td>api/v1/auth/signup</td> <td>SignUp A User</td></tr>
+
+<tr><td>POST</td> <td>api/v1/auth/login</td> <td>Login A User</td></tr>
+
+<tr><td>POST</td> <td>api/v1/users/requests</td> <td>Create A Request</td></tr>
+
+</table>
+
+## Persistent Data API Endpoints
 
 ###
 
@@ -60,6 +84,7 @@ Application User Interface Template is hosted at (https://yomigeek.github.io/mtr
 <tr><td>PUT</td> <td>api/v1/users/requests/:requestId</td>  <td> Modify an  Existing Request Detail By Request Id</td></tr>
 
 </table>
+
 
 ## Getting Started
 
@@ -90,8 +115,8 @@ NB: All fields are required and priority can either be low, medium or high
 
 ```
 {
-   title: "computers",
-   description: "faulty",
+   title: "laptop computers",
+   description: "laptop is faulty and processor is fried",
    prority: "low"
 }
 
@@ -110,8 +135,8 @@ NB: All fields are required and priority can either be low, medium or high
 
 ```
 {
-   title: "computers",
-   description: "faulty",
+   title: "laptop computers",
+   description: "laptop is faulty and processor is fried",
    prority: "low"
 }
 
