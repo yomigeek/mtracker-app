@@ -2,7 +2,9 @@ sudo: false
 language: node_js
 node_js:
   - "node"
-  - "8"
+env:
+  global:
+    - CC_TEST_REPORTER_ID=9627be30e8ec5aee2f586a54d2df29f61869deaf2f3dc122266d9fd70144f90a
 before_install: 
   - cd server
 before_script:
