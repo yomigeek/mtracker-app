@@ -8,7 +8,7 @@ require('dotenv').config();
 let database;
 
 if (env == 'test') {
-  database = process.env.DATABASE_TEST_URL;
+  database = process.env.DATABASE_TEST_URL || process.env.DATABASE_URL;
 } else {
   database = process.env.DATABASE_URL;
 }
@@ -20,7 +20,7 @@ clientString.connect();
 
 const hashedAdminPassword = bcrypt.hashSync('123456', 10);
 
-const createTable = () => {
+const createTable = () => { 
   const query = `
    
 
