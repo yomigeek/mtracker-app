@@ -20,6 +20,7 @@ routes.post('/users/requests', Validate.checkRequestInputs, UserRequestControlle
 routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
-
+// Sign user up
+routes.post('/auth/signup', Validate.signUpValidate);
 
 export default routes;
