@@ -1,17 +1,18 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - "node"
+services:
+  - postgresql 
 env:
   global:
     - CC_TEST_REPORTER_ID=9627be30e8ec5aee2f586a54d2df29f61869deaf2f3dc122266d9fd70144f90a
-before_install: 
-  - cd server
 before_script:
   - npm install
   - npm install coveralls --save-dev
   - npm install mocha-lcov-reporter --save-dev
   - npm install supertest 
+  - psql -c 'create database travis;' -U postgres
   - yarn global add nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
