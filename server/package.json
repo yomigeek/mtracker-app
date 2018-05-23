@@ -7,7 +7,7 @@
     "test": "set NODE_ENV=test && npm run migrate && nyc --reporter=html --reporter=text --reporter=lcov mocha --compilers js:babel-core/register test/test.js --exit",
     "start": "nodemon app.js --exec babel-node --presets es2015",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "migrate": "babel-node models/database.js"
+    "migrate": "babel-node models/tables.js"
   },
   "repository": {
     "type": "git",
