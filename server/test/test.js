@@ -15,7 +15,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'tech',
+        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
       })
       .end((err, res) => {
         res.should.have.status(201);
@@ -24,6 +24,25 @@ describe('User Accounts API Tests', () => {
         res.body.should.have.property('status');
         res.body.should.have.property('message');
         res.body.status.should.equal('success');
+        done();
+      });
+  });
+
+  it('should check if user account exist with the same email on /api/v1/auth/signup POST', (done) => {
+    before(() => console.log('Testing started'));
+    after(() => console.log('Testing finished!'));
+    chai.request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('message');
+        res.body.status.should.equal('fail');
         done();
       });
   });

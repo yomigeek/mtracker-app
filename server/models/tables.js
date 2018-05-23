@@ -30,9 +30,9 @@ const createTable = () => {
 
           DROP TABLE IF EXISTS requests CASCADE;
 
-          DROP TYPE user_role;
+          DROP TYPE IF EXISTS user_role CASCADE;
 
-          DROP TYPE priority_type;
+          DROP TYPE IF EXISTS priority_type CASCADE;
 
           CREATE TYPE user_role as ENUM ('admin','user');
    
