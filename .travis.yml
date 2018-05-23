@@ -5,10 +5,19 @@ node_js:
 services:
   - postgresql
 addons:
-  postgresql: "6.1"
+  apt:
+    sources:
+    - precise-pgdg-6.1
+    packages:
+    - postgresql-6.1
+    - postgresql-contrib-6.1
+  postgresql: 6.1
 env:
   global:
     - CC_TEST_REPORTER_ID=9627be30e8ec5aee2f586a54d2df29f61869deaf2f3dc122266d9fd70144f90a
+    - NODE_ENV=test
+    - PGPORT=5433
+    - PGHOST=localhost
 before_install: 
   - cd server
 before_script:
