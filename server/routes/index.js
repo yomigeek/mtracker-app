@@ -1,5 +1,7 @@
 import express from 'express';
 import UserRequestController from '../controllers/UserRequestController';
+import UsersController from '../controllers/UsersController';
+import CheckExistingUser from '../middlewares/CheckExistingUser';
 import Validate from '../validations/Validate';
 
 const routes = express.Router();
@@ -20,6 +22,7 @@ routes.post('/users/requests', Validate.checkRequestInputs, UserRequestControlle
 routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
-
+// Sign user up
+routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checkExistingUser, UsersController.userSignUp);
 
 export default routes;
