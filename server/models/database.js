@@ -20,7 +20,7 @@ clientString.connect();
 
 const hashedAdminPassword = bcrypt.hashSync('123456', 10);
 
-const createTable = () => { 
+const createTable = () => {
   const query = `
    
 
@@ -30,9 +30,9 @@ const createTable = () => {
 
           DROP TABLE IF EXISTS requests CASCADE;
 
-          DROP TYPE user_role;
+          DROP TYPE IF EXISTS user_role CASCADE;
 
-          DROP TYPE priority_type;
+          DROP TYPE IF EXISTS priority_type CASCADE;
 
           CREATE TYPE user_role as ENUM ('admin','user');
    
