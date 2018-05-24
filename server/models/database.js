@@ -17,5 +17,4 @@ const clientString = new Client(connectString);
 
 clientString.connect();
 
-
-export default database;
+export { connect, database };
