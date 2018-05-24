@@ -1,14 +1,11 @@
 import { Client } from 'pg';
-import database from '../models/database';
+import connect from '../models/database';
 
 class CheckExistingUser {
-  static checkExistingUser(req, res, next) {
-    const connectString = database;
-    const clientString = new Client(connectString);
-    clientString.connect();
+  static checkExistingUserInDatabase(req, res, next) {
 
     const results = [];
-    const checkExistingUser = clientString.query(`SELECT * FROM users WHERE email= '${req.body.email}'`);
+    const checkExistingUser = connect.query(`SELECT * FROM users WHERE email= '${req.body.email}'`);
     checkExistingUser.on('row', (row) => {
       results.push(row);
     });

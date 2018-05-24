@@ -23,6 +23,8 @@ routes.get('/users/requests/:requestId', UserRequestController.getRequestByReque
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
 // Sign user up
-routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checkExistingUser, UsersController.userSignUp);
+routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checkExistingUserInDatabase, UsersController.userSignUp);
+// Sign login
+routes.post('/auth/login', Validate.checkLogin, UsersController.userLogin);
 
 export default routes;
