@@ -1,21 +1,30 @@
 import { Client } from 'pg';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import token from '../token';
 
 const env = process.env.NODE_ENV || 'development';
 
 require('dotenv').config();
 
-let database;
+let mydatabase;
 
 if (env == 'test') {
-  database = process.env.DATABASE_TEST_URL;
+  mydatabase = process.env.DATABASE_TEST_URL;
 } else {
-  database = process.env.DATABASE_URL;
+  mydatabase = process.env.DATABASE_URL;
 }
 
-const connectString = database;
+const connectString = mydatabase;
 const clientString = new Client(connectString);
 
 clientString.connect();
 
-
-export default database;
+class Databases {
+  static addUsers(query) {
+    // Check if user exist
+    const dbQuery = clientString.query(query);
+    return dbQuery;
+  }
+}
+export default Databases;

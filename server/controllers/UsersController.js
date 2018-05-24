@@ -1,9 +1,66 @@
-import models from '../models/Users';
+import { Client } from 'pg';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import token from '../token';
+import database from '../models/database';
 
-class UsersController {
-  static createUsers(req, res) {
-    models.userSignUp(req, res);
+class Users {
+  static userSignUp(req, res) {
+    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+
+    const query = database.doQuery(`${'insert into users (fullname,email,password,department,role) ' +
+    "values ('"}${req.body.fullname}','${req.body.email}','${hashedPassword}','${req.body.department}','user')`);
+    if (query) {
+      return res.status(201).json({
+
+        status: 'success',
+        message: 'User created successfully!',
+        data: {
+          fullname: req.body.fullname,
+          email: req.body.email,
+          department: req.body.department,
+        },
+      });
+    }
+  }
+
+  static userLogin(req, res) {
+    // Check if user exist
+    const results = [];
+    const checkExistingUser = database.doQuery(`SELECT * FROM users WHERE email= '${req.body.email}'`);
+    checkExistingUser.on('row', (row) => {
+      results.push(row);
+    });
+
+    // After all data is returned, close connection and return results
+    checkExistingUser.on('end', () => {
+      if (results.length <= 0) {
+        return res.status(400).json({
+
+          status: 'fail',
+          message: 'Invalid Email!',
+        });
+      }
+
+
+      const comparedpassword = bcrypt.compareSync(req.body.password, results[0].password);
+      if (comparedpassword) {
+        const mytoken = token(results[0].id, results[0].role);
+        return res.status(200).send({
+          status: 'success',
+          message: 'Login successful',
+          data: {
+            mytoken,
+          },
+        });
+      }
+      return res.status(400).send({
+        status: 'fail',
+        message: 'Wrong password!',
+      });
+    });
   }
 }
 
-export default UsersController;
+export default Users;
+
