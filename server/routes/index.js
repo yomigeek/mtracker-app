@@ -1,6 +1,7 @@
 import express from 'express';
 import UserRequestController from '../controllers/UserRequestController';
-import UsersController from '../controllers/UsersController';
+import UserSignUpController from '../controllers/UserSignUpController';
+import UserLoginController from '../controllers/UserLoginController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
 import Validate from '../validations/Validate';
 
@@ -23,6 +24,8 @@ routes.get('/users/requests/:requestId', UserRequestController.getRequestByReque
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
 // Sign user up
-routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checkExistingUser, UsersController.userSignUp);
+routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checker, UserSignUpController.userSignUp);
+// Sign login
+routes.post('/auth/login', Validate.checkLogin, UserLoginController.userLogin);
 
 export default routes;

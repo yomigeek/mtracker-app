@@ -1,22 +1,22 @@
-import { Client } from 'pg';
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+
+dotenv.config();
 
 const env = process.env.NODE_ENV || 'development';
 
-require('dotenv').config();
 
-let database;
-
+let mydatabase;
+console.log('environs', env);
 if (env == 'test') {
-  database = process.env.DATABASE_TEST_URL;
+  mydatabase = process.env.DATABASE_URL;
 } else {
-  database = process.env.DATABASE_URL;
+  mydatabase = process.env.DATABASE_URL;
 }
 
-const connectString = database;
-const clientString = new Client(connectString);
+const connectString = mydatabase;
+const database = new Pool({ connectionString: mydatabase, ssl: true });
 
-clientString.connect();
 
-const connect = clientString;
-
-export { connect, database };
+export default database;

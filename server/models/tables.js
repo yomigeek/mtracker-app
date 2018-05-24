@@ -8,7 +8,7 @@ require('dotenv').config();
 let database;
 
 if (env == 'test') {
-  database = process.env.DATABASE_TEST_URL;
+  database = process.env.DATABASE_URL;
 } else {
   database = process.env.DATABASE_URL;
 }
@@ -122,7 +122,7 @@ const createTable = () => {
 
   clientString.query(query, (err) => {
     if (err) {
-      console.log(err.message);
+      return err.message;
     }
     clientString.end();
   });

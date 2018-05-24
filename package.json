@@ -4,12 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "set NODE_ENV=test && npm run migrate &&nyc --reporter=html --reporter=text --reporter=lcov mocha --compilers js:babel-core/register test/ --exit",
-    "start": "nodemon app.js --exec babel-node --presets es2015",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "migrate": "babel-node models/tables.js",
-    "production": "set NODE_ENV=production && babel-node models/tables.js",
-    "heroku-postbuild": "npm run production"
+    "test": "cd server && set NODE_ENV=test && npm run migrate &&nyc --reporter=html --reporter=text --reporter=lcov mocha --compilers js:babel-core/register test/ --exit",
+    "start": "cd server && babel-node app.js --exec babel-node --presets es2015",
+    "coveralls": "cd server && nyc report --reporter=text-lcov | coveralls",
+    "migrate": "cd server && babel-node models/tables.js",
+    "heroku-postbuild": "npm run migrate"
   },
   "repository": {
     "type": "git",
