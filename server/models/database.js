@@ -17,6 +17,4 @@ const clientString = new Client(connectString);
 
 clientString.connect();
 
-const connect = clientString;
-
 export { connect, database };
