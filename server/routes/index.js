@@ -2,8 +2,10 @@ import express from 'express';
 import UserRequestController from '../controllers/UserRequestController';
 import UserSignUpController from '../controllers/UserSignUpController';
 import UserLoginController from '../controllers/UserLoginController';
+import RequestsController from '../controllers/RequestsController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
 import Validate from '../validations/Validate';
+import auth from '../auth';
 
 const routes = express.Router();
 
@@ -18,7 +20,8 @@ routes.get('/', (req, res) => res.status(200).send({
 // Get all requests in the dummy data
 routes.get('/users/requests', UserRequestController.getAllRequests);
 // Create Request to a dummy data
-routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
+// routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
+routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
 // Get a user request detail
 routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
