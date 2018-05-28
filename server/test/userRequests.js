@@ -25,6 +25,20 @@ describe('User request API Tests', () => {
       });
   });
 
+  it('should return fail on fetch ALL user requests without any request existing on /api/v1/users/requests GET', (done) => {
+    chai.request(app)
+      .get('/api/v1/users/requests')
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.status.should.equal('fail');
+
+        done();
+      });
+  });
 
   it('should add a SINGLE request on /api/v1/users/requests POST', (done) => {
     chai.request(app)
@@ -140,6 +154,22 @@ describe('User request API Tests', () => {
         res.body.should.have.property('status');
         res.body.should.have.property('message');
         res.body.status.should.equal('fail');
+
+        done();
+      });
+  });
+
+  it('should fetch ALL user requests on /api/v1/users/requests GET', (done) => {
+    chai.request(app)
+      .get('/api/v1/users/requests')
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.status.should.equal('success');
+        res.body.data.should.have.property('requests');
 
         done();
       });

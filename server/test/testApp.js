@@ -8,24 +8,7 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 // Test user request API/functions
-describe('User request API Tests', () => {
-  it('should list ALL on /api/v1/users/requests GET', (done) => {
-    before(() => console.log('Testing started'));
-    after(() => console.log('Testing finished!'));
-    chai.request(app)
-      .get('/api/v1/users/requests')
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.have.property('status');
-        res.body.status.should.equal('success');
-        res.body.data.should.have.property('requests');
-
-        done();
-      });
-  });
-
+describe('User request API Tests: Dummy Data', () => {
   it('should list a SINGLE request on /api/v1/users/requests/:requestId GET', (done) => {
     chai.request(app)
       .get(`/api/v1/users/requests/${1}`)
@@ -64,8 +47,8 @@ describe('User request API Tests', () => {
         chai.request(app)
           .put(`/api/v1/users/requests/${1}`)
           .send({ title: 'Burnt cable in office', description: 'Cable in office B is faulty', priority: 'high' })
-          .end((error, response) => {
-            response.should.have.status(201);
+          .end((error, res) => {
+            res.should.have.status(201);
             res.should.be.json;
             res.body.should.be.a('object');
             res.body.should.have.property('status');

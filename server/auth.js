@@ -15,7 +15,7 @@ export default function auth(req, res, next) {
     });
   } else {
     return res.status(401).send({
-      message: 'Unauthorized Acces! You are not allowed to access this page.',
+      message: 'Unauthorized Access! You are not allowed to access this page.',
     });
   }
 }
