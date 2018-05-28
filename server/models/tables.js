@@ -111,6 +111,34 @@ const createTable = () => {
             'admin'
    
           ); 
+
+          INSERT INTO users (
+
+            fullname,
+
+            email,
+
+            department,
+
+            password,
+      
+            role
+   
+          )
+   
+          VALUES (
+   
+            'user test',
+   
+            'user@gmail.com',
+   
+            'IT',
+      
+            '${hashedAdminPassword}',
+   
+            'user'
+   
+          ); 
           
           INSERT INTO request_status VALUES
             (1, 'open'),
