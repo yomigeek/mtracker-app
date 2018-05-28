@@ -9,37 +9,6 @@ chai.use(chaiHttp);
 
 // Test user request API/functions
 describe('User request API Tests: Dummy Data', () => {
-  it('should list a SINGLE request on /api/v1/users/requests/:requestId GET', (done) => {
-    chai.request(app)
-      .get(`/api/v1/users/requests/${1}`)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.have.property('status');
-        res.body.should.have.property('message');
-        res.body.status.should.equal('success');
-        res.body.data.should.have.property('requests');
-        res.body.data.requests.should.have.property('id');
-
-        done();
-      });
-  });
-
-  it('should return fail when using non-existing id on /api/v1/users/requests/:requestId GET', (done) => {
-    chai.request(app)
-      .get(`/api/v1/users/requests/${31}`)
-      .end((err, res) => {
-        res.should.have.status(404);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.have.property('status');
-        res.body.should.have.property('message');
-        res.body.status.should.equal('fail');
-
-        done();
-      });
-  });
   it('should update a SINGLE request on /api/v1/users/requests/requestId PUT', (done) => {
     chai.request(app)
       .get('/api/v1/users/requests')

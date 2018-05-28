@@ -46,6 +46,30 @@ class RequestsController {
       });
     });
   }
+
+  static getRequestById(req, res) {
+    const dbQuery = (`SELECT title, description, priority, values FROM requests INNER JOIN request_status ON requests.status = request_status.id WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
+
+    database.query(dbQuery, (err, response) => {
+      if (err) {
+        throw err;
+      } else if (response.rows.length < 1) {
+        return res.status(404).json({
+
+          status: 'fail',
+          message: 'This request does not belong to or exist for this User!',
+        });
+      }
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Requests found',
+        data: {
+          requests: response.rows[0],
+        },
+      });
+    });
+  }
 }
 
 export default RequestsController;

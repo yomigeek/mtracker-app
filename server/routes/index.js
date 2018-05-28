@@ -22,7 +22,7 @@ routes.get('/', (req, res) => res.status(200).send({
 // Create Request to a dummy data
 // routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
 // Get a user request detail dummy data
-routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
+// routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
 
@@ -36,5 +36,7 @@ routes.post('/auth/login', Validate.checkLogin, UserLoginController.userLogin);
 routes.get('/users/requests', auth, RequestsController.getAllRequests);
 // Create a request in DB
 routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
+// Get a user request detail
+routes.get('/users/requests/:requestId', auth, RequestsController.getRequestById);
 
 export default routes;
