@@ -18,17 +18,23 @@ routes.get('/', (req, res) => res.status(200).send({
 // User API Routes
 
 // Get all requests in the dummy data
-routes.get('/users/requests', UserRequestController.getAllRequests);
+// routes.get('/users/requests', UserRequestController.getAllRequests);
 // Create Request to a dummy data
 // routes.post('/users/requests', Validate.checkRequestInputs, UserRequestController.createRequest);
-routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
-// Get a user request detail
+// Get a user request detail dummy data
 routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
 routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
+
+// Persistent Data
+
 // Sign user up
 routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checker, UserSignUpController.userSignUp);
 // Sign login
 routes.post('/auth/login', Validate.checkLogin, UserLoginController.userLogin);
+// Get all logged in user requests
+routes.get('/users/requests', auth, RequestsController.getAllRequests);
+// Create a request in DB
+routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
 
 export default routes;
