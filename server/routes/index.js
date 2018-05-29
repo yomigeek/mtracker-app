@@ -51,6 +51,12 @@ routes.put(
   CheckRequest.existingRequest, RequestTypeSelector.approve,
   AdminRequestController.adminRequestProcess,
 );
+// Disapprove User Request
+routes.put(
+  '/requests/:requestId/disapprove', auth, CheckRole.checkIfAdmin,
+  CheckRequest.existingRequest, RequestTypeSelector.decline,
+  AdminRequestController.adminRequestProcess,
+);
 
 
 export default routes;
