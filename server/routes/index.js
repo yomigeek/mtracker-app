@@ -1,12 +1,14 @@
 import express from 'express';
-import UserRequestController from '../controllers/UserRequestController';
 import UserSignUpController from '../controllers/UserSignUpController';
 import UserLoginController from '../controllers/UserLoginController';
 import RequestsController from '../controllers/RequestsController';
+import AdminRequestController from '../controllers/AdminRequestController';
+import UserRequestController from '../controllers/UserRequestController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
+import CheckRequest from '../middlewares/CheckRequest';
+import RequestTypeSelector from '../middlewares/RequestTypeSelector';
 import Validate from '../validations/Validate';
 import CheckRole from '../validations/CheckRole';
-import AdminRequestController from '../controllers/AdminRequestController';
 
 import auth from '../auth';
 
@@ -43,5 +45,12 @@ routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsContro
 routes.get('/users/requests/:requestId', auth, RequestsController.getRequestById);
 // Get all requests by ADMIN
 routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
+// Approve User Request
+routes.put(
+  '/requests/:requestId/approve', auth, CheckRole.checkIfAdmin,
+  CheckRequest.existingRequest, RequestTypeSelector.approve,
+  AdminRequestController.adminRequestProcess,
+);
+
 
 export default routes;
