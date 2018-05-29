@@ -141,10 +141,10 @@ const createTable = () => {
           ); 
           
           INSERT INTO request_status VALUES
-            (1, 'open'),
-            (2, 'pending'),
-            (3, 'declined'),
-            (4, 'resolved');
+            (1, 'pending'),
+            (2, 'approve'),
+            (3, 'decline'),
+            (4, 'resolve');
 
       `;
 
