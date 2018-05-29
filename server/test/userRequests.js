@@ -193,7 +193,7 @@ describe('User request API Tests', () => {
 
   it('should fetch a user request detail on /api/v1/users/requests GET', (done) => {
     chai.request(app)
-      .get(`/api/v1/users/requests/${2}`)
+      .get(`/api/v1/users/requests/${4}`)
       .set('x-access-token', token)
       .end((err, res) => {
         res.should.have.status(200);
