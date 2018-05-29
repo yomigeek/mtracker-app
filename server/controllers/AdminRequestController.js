@@ -33,7 +33,7 @@ class AdminRequestController {
     const requestProcessByAdmin = res.locals.value;
     const approveDbQuery = (`UPDATE requests SET status = ${2}  WHERE id = '${req.params.requestId}' AND status = ${1} RETURNING *`);
 
-    const declineDbQuery = (`UPDATE requests SET status = ${3}  WHERE id = '${req.params.requestId}' AND status = ${1} RETURNING *`);
+    const declineDbQuery = (`UPDATE requests SET status = ${3}  WHERE id = '${req.params.requestId}' AND (status = ${1} OR status = ${2}) RETURNING *`);
 
     const resolveDbQuery = (`UPDATE requests SET status = ${4}  WHERE id = '${req.params.requestId}' AND status = ${2} RETURNING *`);
 

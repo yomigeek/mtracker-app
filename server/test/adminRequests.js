@@ -57,6 +57,22 @@ describe('Admin request API Tests', () => {
       });
   });
 
+  it('should fail on non-existing request user on before user inputs a request on /api/v1/requests/requestId/disapprove PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${2}/disapprove`)
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('message');
+        res.body.status.should.equal('fail');
+
+        done();
+      });
+  });
+
   it('should login a user account on /api/v1/auth/login POST', (done) => {
     chai.request(app)
       .post('/api/v1/auth/login')
@@ -129,6 +145,8 @@ describe('Admin request API Tests', () => {
       });
   });
 
+  // Admin Approve Test
+
   it('should return fail on admin approve user requests with no token on /api/v1/requests/requestId/approve PUT', (done) => {
     chai.request(app)
       .put(`/api/v1/requests/${1}/approve`)
@@ -140,7 +158,7 @@ describe('Admin request API Tests', () => {
       });
   });
 
-  it('should return fail on fetch ALL user requests with invalid token on /api/v1/requests PUT', (done) => {
+  it('should return fail on approving a user requests with invalid token on /api/v1/requests/requestId/approve PUT', (done) => {
     chai.request(app)
       .put(`/api/v1/requests/${1}/approve`)
       .set('x-access-token', badToken)
@@ -152,7 +170,7 @@ describe('Admin request API Tests', () => {
       });
   });
 
-  it('should return on success on approve user requests with valid token on /api/v1/requests PUT', (done) => {
+  it('should return on success on approve user requests with valid token on /api/v1/requests/requestId/approve PUT', (done) => {
     chai.request(app)
       .put(`/api/v1/requests/${1}/approve`)
       .set('x-access-token', token)
@@ -167,7 +185,7 @@ describe('Admin request API Tests', () => {
       });
   });
 
-  it('should return on fail on already approved user requests with valid token on /api/v1/requests PUT', (done) => {
+  it('should return on fail on already approved user requests with valid token on /api/v1/requests/requestId/approve PUT', (done) => {
     chai.request(app)
       .put(`/api/v1/requests/${1}/approve`)
       .set('x-access-token', token)
@@ -182,9 +200,80 @@ describe('Admin request API Tests', () => {
       });
   });
 
-  it('should return on fail on non existing user requests with valid token on after user inputs a request on /api/v1/requests PUT', (done) => {
+  it('should return on fail on non existing user requests with valid token on after user inputs a request on /api/v1/requests/requestId/approve PUT', (done) => {
     chai.request(app)
       .put(`/api/v1/requests/${2}/approve`)
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.status.should.equal('fail');
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+
+  // Disapprove Test
+
+  it('should return fail on admin disapprove user requests with no token on /api/v1/requests/requestId/disapprove PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${1}/disapprove`)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.json;
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('should return fail on dispproving a request with invalid token on /api/v1/requests/requestId/disapprove PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${1}/disapprove`)
+      .set('x-access-token', badToken)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.json;
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('should return on success on disapproving user requests with valid token on /api/v1/requests/requestId/disapprove PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${1}/disapprove`)
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.status.should.equal('success');
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('should return on fail on already disapproved user request with valid token on /api/v1/requests/requestId/disapprove PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${1}/disapprove`)
+      .set('x-access-token', token)
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        res.body.status.should.equal('fail');
+        res.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('should return on fail on non existing user requests with valid token on after user inputs a request on /api/v1/requests PUT', (done) => {
+    chai.request(app)
+      .put(`/api/v1/requests/${2}/disapprove`)
       .set('x-access-token', token)
       .end((err, res) => {
         res.should.have.status(400);
