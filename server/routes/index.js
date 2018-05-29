@@ -3,7 +3,6 @@ import UserSignUpController from '../controllers/UserSignUpController';
 import UserLoginController from '../controllers/UserLoginController';
 import RequestsController from '../controllers/RequestsController';
 import AdminRequestController from '../controllers/AdminRequestController';
-import UserRequestController from '../controllers/UserRequestController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
 import CheckRequest from '../middlewares/CheckRequest';
 import RequestTypeSelector from '../middlewares/RequestTypeSelector';
@@ -29,7 +28,7 @@ routes.get('/', (req, res) => res.status(200).send({
 // Get a user request detail dummy data
 // routes.get('/users/requests/:requestId', UserRequestController.getRequestByRequestId);
 // Modify Request details by requestId
-routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
+// routes.put('/users/requests/:requestId', Validate.checkRequestInputs, UserRequestController.editRequest);
 
 // Persistent Data
 
@@ -43,6 +42,8 @@ routes.get('/users/requests', auth, RequestsController.getAllRequests);
 routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
 // Get a user request detail
 routes.get('/users/requests/:requestId', auth, RequestsController.getRequestById);
+// Modify a request by user
+routes.put('/users/requests/:requestId', auth, CheckRequest.existingRequest, Validate.checkRequestInputs, RequestsController.editRequest);
 // Get all requests by ADMIN
 routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
 // Approve User Request

@@ -24,7 +24,9 @@ class RequestsController {
   }
 
   static getAllRequests(req, res) {
-    const dbQuery = (`SELECT title, description, priority, values FROM requests INNER JOIN request_status ON requests.status = request_status.id WHERE requests.userid= '${req.decoded.id}'`);
+    const dbQuery = (`SELECT title, description, priority, values FROM requests 
+    INNER JOIN request_status ON requests.status = request_status.id 
+    WHERE requests.userid= '${req.decoded.id}'`);
 
     database.query(dbQuery, (err, response) => {
       if (err) {
@@ -48,7 +50,9 @@ class RequestsController {
   }
 
   static getRequestById(req, res) {
-    const dbQuery = (`SELECT title, description, priority, values FROM requests INNER JOIN request_status ON requests.status = request_status.id WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
+    const dbQuery = (`SELECT title, description, priority, values FROM requests 
+    INNER JOIN request_status ON requests.status = request_status.id 
+    WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
 
     database.query(dbQuery, (err, response) => {
       if (err) {
@@ -72,7 +76,10 @@ class RequestsController {
   }
 
   static approveRequest(req, res) {
-    const dbQuery = (`SELECT title, description, priority, values FROM requests INNER JOIN request_status ON requests.status = request_status.id WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
+    const dbQuery = (`SELECT title, description, priority, values 
+    FROM requests INNER JOIN request_status ON 
+    requests.status = request_status.id
+    WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
 
     database.query(dbQuery, (err, response) => {
       if (err) {
@@ -90,6 +97,39 @@ class RequestsController {
         message: 'Requests found',
         data: {
           requests: response.rows[0],
+        },
+      });
+    });
+  }
+
+  static editRequest(req, res) {
+    const dbQuery = (`UPDATE requests SET 
+      title = '${req.body.title}',
+      description = '${req.body.description}',
+      priority = '${req.body.priority}'
+
+      WHERE id = '${req.params.requestId}' AND status = ${1} RETURNING *`);
+
+    database.query(dbQuery, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      if (response.rows.length < 1) {
+        return res.status(400).json({
+
+          status: 'fail',
+          message: 'Sorry! Cannot modify an approved or declined request.',
+        });
+      }
+
+      return res.status(200).send({
+        status: 'success',
+        message: 'Request updated successfully!',
+        data: {
+          id: response.rows[0].id,
+          title: response.rows[0].title,
+          description: response.rows[0].description,
+          priority: response.rows[0].priority,
         },
       });
     });
