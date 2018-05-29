@@ -57,6 +57,12 @@ routes.put(
   CheckRequest.existingRequest, RequestTypeSelector.decline,
   AdminRequestController.adminRequestProcess,
 );
+// Resolve User Request
+routes.put(
+  '/requests/:requestId/resolve', auth, CheckRole.checkIfAdmin,
+  CheckRequest.existingRequest, RequestTypeSelector.resolve,
+  AdminRequestController.adminRequestProcess,
+);
 
 
 export default routes;
