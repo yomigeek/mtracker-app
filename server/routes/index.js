@@ -5,6 +5,9 @@ import UserLoginController from '../controllers/UserLoginController';
 import RequestsController from '../controllers/RequestsController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
 import Validate from '../validations/Validate';
+import CheckRole from '../validations/CheckRole';
+import AdminRequestController from '../controllers/AdminRequestController';
+
 import auth from '../auth';
 
 const routes = express.Router();
@@ -38,5 +41,7 @@ routes.get('/users/requests', auth, RequestsController.getAllRequests);
 routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
 // Get a user request detail
 routes.get('/users/requests/:requestId', auth, RequestsController.getRequestById);
+// Get all requests by ADMIN
+routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
 
 export default routes;
