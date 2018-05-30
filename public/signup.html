@@ -21,9 +21,14 @@
 
   <div id="container">
 
- 
+    <p class="working-msg" id="signup-process">
+      Processing SignUp process....
+    </p>
+    <p class="working-msg" id="success-box">
+      Account Created Successfully! <a href="./login.html" class="form-link-color">Login Here</a>
+    </p>
 
-    <form action="login.html" class="form-signup">
+    <form id="signup-form" class="form-signup">
 
       <p class="category-panel-header"> Create An Account</p>
 
@@ -33,16 +38,18 @@
 
       <input type="password" placeholder=" Password " id="password" required/>
 
-      <select name="department">
-        <option value=" ">Select Department</option>
+      <h5>Department</h5>
+      <select name="department" id="department">
         <option value="IT">IT</option>
         <option value="Finance">Finance</option>
         <option value="HR">HR</option>
       </select>
 
       <div align="center">
-        <button class="submit-button" id="submit" onclick=" ">Create Account</button>
+        <input type="submit" class="submit-button" id="submit" value="Create Account" />
       </div>
+      <p class="error" id="error">Error here</p>
+
     </form>
 
     <p align="center" class="form-footer">
@@ -62,7 +69,7 @@
   <p class="footer">© 2018. M-tracker.</p>
 
 
-  <script>
+  <script src="./assets/js/fetchSignup.js">
 
   </script>
 
