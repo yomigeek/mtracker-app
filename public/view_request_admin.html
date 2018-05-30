@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>M-Tracker - DashBoard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/pages.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+
+<body>
+  <div class="topnav">
+    <p>M-Tracker</p>
+
+    <a href="admin_login.html">Logout</a>
+    <a href="#">Profile</a>
+    <a href="admin_dashboard.html">Home</a>
+    <a href="#">
+      <i class="material-icons notify-icon">mms</i>
+      <b class="notify-count">2</b>
+    </a>
+
+  </div>
+  <h4>
+    <img src="./assets/images/details.png" class="page-icon" />
+  </h4>
+  <h4 class="resolved-request-header">
+    Request Details
+  </h4>
+  <p class="form-footer">
+
+    <a href="admin_dashboard.html" class="form-link-color">
+      <img src='./assets/images/back_icon.png' class="menu-icon" /> BACK TO REQUESTS LOG</a>
+
+  </p>
+  <div id="container">
+
+    <div class="approve-category-panel">
+      Request Approved! Check pending request to resolve.
+    </div>
+    <div class="decline-category-panel">
+      Request Declined! Requester will be notified shortly.
+    </div>
+
+
+    <div class="details-container" id="request-details-box">
+
+      <p class="category-panel-header">
+        <b>
+          ID:
+        </b>
+        23456
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Requester Name:
+        </b>
+        Yomi Olaoye
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Unit/Department:
+        </b>
+        Technology
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Title:
+        </b>
+        Repair the office AC
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Description:
+        </b>
+        Reapair system Operating system
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Priority:
+        </b>
+        High
+      </p>
+
+
+
+      <div>
+        <button class="approve-button" id="submit" onclick="approvePanelShow() ">Approve</button>
+        <button class="decline-button" id="submit" onclick="declinePanelShow() ">Decline</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <p class="footer">© 2018. M-tracker.</p>
+
+  <script src="./assets/js/script.js">
+
+  </script>
+
+</body>
+
+</html>
