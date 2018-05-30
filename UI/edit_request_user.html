@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>M-Tracker - DashBoard</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/pages.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>M-Tracker - DashBoard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/pages.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 </head>
-    <body>
-        <div class="topnav">
-            <p>M-Tracker</p>
-            
-            <a href="login.html">Logout</a>
-            <a href="#">Profile</a>
-            <a href="user_dashboard.html">Home</a>
-            <a href="#"><i class="material-icons notify-icon">mms</i><b class="notify-count">2</b></a>
 
+<body>
+  <div class="topnav">
+    <p>M-Tracker</p>
+
+    <a href="login.html">Logout</a>
+    <a href="#">Profile</a>
+    <a href="user_dashboard.html">Home</a>
+    <a href="#">
+      <i class="material-icons notify-icon">mms</i>
+      <b class="notify-count">2</b>
+    </a>
+
+  </div>
+  <h4>
+    <img src="./assets/images/details.png" class="page-icon" />
+  </h4>
+  <h4 class="resolved-request-header">
+    Edit-A-Request
+  </h4>
+  <p class="form-footer">
+
+    <a href="user_dashboard.html" class="form-link-color">
+      <img src='./assets/images/back_icon.png' class="menu-icon" /> BACK TO MY-REQUESTS</a>
+
+  </p>
+  <div id="container">
+
+    <div class="approve-category-panel">
+      Request Edit Succesfull!
+    </div>
+    <div class="decline-category-panel">
+      Request edit failed!
+    </div>
+
+    <div class="details-container" id="request-details-box">
+
+      <form action="#" onsubmit="updateRequest() ">
+        <h5>ID: 2356</h5>
+        <h5>Title</h5>
+        <input type="text" value="Lift repair" id="text" required/>
+
+        <h5>Description</h5>
+        <textarea rows="5" required>Please repair</textarea>
+
+        <h5>Prority</h5>
+        <select name="request_type">
+          <option value="1">Low</option>
+          <option value="2">Mediium</option>
+          <option value="3">High</option>
+        </select>
+
+        <div>
+          <input type="submit" class="submit-button" id="submit" value="Update Request" />
         </div>
-        <h4 ><img src="./assets/images/details.png" class="page-icon" /></h4>
-        <h4 class="resolved-request-header">
-            Edit-A-Request
-        </h4>
-        <p class="form-footer">
-                
-                <a href="user_dashboard.html" class="formLinkColor">...Back to Request Logs...</a>
-           
-         </p>
-         <div id="container">
-          
-          <div class="approve-category-panel"> 
-            Request Edit Succesfull!
-          </div>
-          <div class="decline-category-panel"> 
-              Request edit failed!
-            </div>
- 
-        <div class="details-container" id="request-details-box">
-              
-            <form action="#" id="merchantForm" onsubmit="updateRequest() ">
-                <h5>ID: 2356</h5>
-                <h5>Title</h5>
-                <input type="text" value="Lift repair" id="text" required/>
-                
-                <h5>Description</h5>
-                <textarea rows="5" required>Please repair</textarea> 
-                
-                <h5>Prority</h5>
-                <select name="request_type">
-                  <option value="1">Low</option>
-                  <option value="2">Mediium</option>
-                  <option value="3">High</option>
-                </select>
-                
-                <div >
-                    <input type="submit" class="submitButton" id="submit" value="Update Request"/>
-                </div>
-                
-            </form>
-            
-      
-        </div>
 
-        
-        
-        <p class="footer">© 2018. M-tracker.</p>
-               
-        
-        
+      </form>
 
-        
-        <script src="./assets/js/script.js">
-            
-        </script>
 
-    </body>
+    </div>
+
+
+
+    <p class="footer">© 2018. M-tracker.</p>
+
+
+    <script src="./assets/js/script.js">
+
+    </script>
+
+</body>
+
 </html>

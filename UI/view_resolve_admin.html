@@ -1,85 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>M-Tracker - DashBoard</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/pages.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>M-Tracker - DashBoard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/pages.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 </head>
-    <body>
-        <div class="topnav">
-            <p>M-Tracker</p>
-            
-            <a href="admin_login.html">Logout</a>
-            <a href="#">Profile</a>
-            <a href="admin_dashboard.html">Home</a>
-            <a href="#"><i class="material-icons notify-icon">mms</i><b class="notify-count">2</b></a>
 
-        </div>
-        <h4 ><img src="./assets/images/details.png" class="page-icon" /></h4>
-        <h4 class="resolved-request-header">
-            Confirm Request
-        </h4>
-        <div class="approve-category-panel"> 
-          Request Resolved!
-        </div>
-        <p class="form-footer">
-                
-                <a href="admin_dashboard.html" class="formLinkColor">...Back to Request Logs...</a>
-           
-         </p>
-          <div class="details-container" id="request-details-box">
-              
-              <p class="categoryPanelHeader">
-                <b>
-                  ID:
-                </b>
-                23456
-              </p>
-              <p class="categoryPanelHeader">
-                <b>
-                  Requester Name:
-                </b>
-                Yomi Olaoye
-              </p>
-              <p class="categoryPanelHeader">
-                  <b>
-                    Title:
-                  </b>
-                  AC repair
-                </p>
-              <p class="categoryPanelHeader">
-                <b>
-                  Description:
-                </b>
-                Reapair system Operating system
-              </p>
-             
-              <p class="categoryPanelHeader">
-                <b>
-                  Priority:
-                </b>
-                High
-              </p>
-        
-              <div >
-                <h5>Are you sure you want to resolve the request?</h4>
-               
-                  <button class="approve-button" onclick="approveResolvePanelShow()">Yes</button>
-                  <a href="admin_pending_dashboard.html"><button class="decline-button" id="submit" onclick="">No</button></a>
-              </div>
-            </div>
-      
-      </div>
+<body>
+  <div class="topnav">
+    <p>M-Tracker</p>
 
-        <p class="footer">© 2018. M-tracker.</p>
- 
-        <script src="./assets/js/script.js">
-            
-        </script>
+    <a href="admin_login.html">Logout</a>
+    <a href="#">Profile</a>
+    <a href="admin_dashboard.html">Home</a>
+    <a href="#">
+      <i class="material-icons notify-icon">mms</i>
+      <b class="notify-count">2</b>
+    </a>
 
-    </body>
+  </div>
+  <h4>
+    <img src="./assets/images/details.png" class="page-icon" />
+  </h4>
+  <h4 class="resolved-request-header">
+    Confirm Request
+  </h4>
+  <div class="approve-category-panel">
+    Request Resolved!
+  </div>
+  <p class="form-footer">
+
+    <a href="admin_dashboard.html" class="form-link-color">
+      <img src='./assets/images/back_icon.png' class="menu-icon" /> BACK TO REQUESTS LOG</a>
+
+  </p>
+  <div class="details-container" id="request-details-box">
+
+    <p class="category-panel-header">
+      <b>
+        ID:
+      </b>
+      23456
+    </p>
+    <p class="category-panel-header">
+      <b>
+        Requester Name:
+      </b>
+      Yomi Olaoye
+    </p>
+    <p class="category-panel-header">
+      <b>
+        Title:
+      </b>
+      AC repair
+    </p>
+    <p class="category-panel-header">
+      <b>
+        Description:
+      </b>
+      Reapair system Operating system
+    </p>
+
+    <p class="category-panel-header">
+      <b>
+        Priority:
+      </b>
+      High
+    </p>
+
+    <div>
+      <h5>Are you sure you want to resolve the request?</h4>
+
+        <button class="approve-button" onclick="approveResolvePanelShow()">Yes</button>
+        <a href="admin_pending_dashboard.html">
+          <button class="decline-button" id="submit" onclick="">No</button>
+        </a>
+    </div>
+  </div>
+
+  </div>
+
+  <p class="footer">© 2018. M-tracker.</p>
+
+  <script src="./assets/js/script.js">
+
+  </script>
+
+</body>
+
 </html>

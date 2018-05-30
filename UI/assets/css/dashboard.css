@@ -1,486 +1,456 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 html {
-    margin: 0px;
-    padding: 0px;
-} 
+  margin: 0px;
+  padding: 0px;
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px;
-    padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Style the header */
-.header {
-    background-color: #112E47;
-    padding: 50px 0px 200px 0px;
-    text-align: center;
-    font-size: 21px;
-    color: #fff;
-     
 
+.header {
+  background-color: #112E47;
+  padding: 50px 0px 200px 0px;
+  text-align: center;
+  font-size: 21px;
+  color: #fff;
 }
 
 .dashboard-heading {
-
-    margin-bottom: 50px;
-    margin-top: 55px;
-    text-align: center;
+  margin-bottom: 50px;
+  margin-top: 55px;
+  text-align: center;
 }
-.profile-photo-placement {
 
-    display: block;
-    margin: 0 auto;
+.profile-photo-placement {
+  display: block;
+  margin: 0 auto;
 }
 
 .logo {
-    
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
-.create-button{
+.create-button {
+  width: 170px;
+  height: 42px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  background: #3BB75E;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
 
-    width: 170px;
-    height: 42px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    background: #3BB75E;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin: 0 auto;
-  }
-
-  .topnav {
-    background-color: #112E47;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
+.topnav {
+  background-color: #112E47;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Style the topnav links */
 
 .topnav p {
-    display: inline-block;
-    color: #f2f2f2;
-    padding-left: 10px;
-    font-size: 0.9rem;
-    text-decoration: none;
+  display: inline-block;
+  color: #f2f2f2;
+  padding-left: 10px;
+  font-size: 1.1rem;
+  text-decoration: none;
 }
-.topnav a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 15px 12px;
-    font-size: 0.8rem;
-    text-decoration: none;
 
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 12px;
+  font-size: 0.8rem;
+  text-decoration: none;
 }
 
 .app-description {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: normal;
-    line-height: 1.3;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.3;
 }
+
 h5 {
-    -webkit-margin-before: 0.83em;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
+
 .row {
-    display: -webkit-flex;
-    display: flex;
-    padding-bottom: 300px;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 300px;
 }
+
 .column {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    padding: 15px;
-    padding-left: 10px;
-    margin-top: 15px;
-    height: 200px; 
-    background-color: #fff;
-    word-wrap: break-word;
-
-
-}
-.form-footer{
-
-    font-size: 13px;
-    margin-bottom: 25px;
-    text-align: center;
-
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 15px;
+  padding-left: 10px;
+  margin-top: 15px;
+  height: 200px;
+  background-color: #fff;
+  word-wrap: break-word;
 }
 
-.formLinkColor {
+.form-footer {
+  font-size: 15px;
+  margin-bottom: 35px;
+  text-align: center;
+}
 
-    color: #bf360c;
-
+.form-link-color {
+  color: #bf360c;
+  font-weight: bold;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #3BB75E;
+  color: #3BB75E;
 }
 
 @media (max-width: 600px) {
-  
-    
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 100%;
-
+  }
 }
 
+#myfilter {
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 0px 12px 10px;
+  border: 1px solid #3BB75E;
+  margin: 30px auto;
 }
 
-#myFilter {
-   
-    width: 50%;
-    font-size: 16px;
-    padding: 12px 0px 12px 10px;
-    border: 1px solid #3BB75E;
-    margin:30px auto;
-
+#myfilter:focus {
+  background-color: #112E47;
+  border: 1px solid #fff;
+  outline: none;
+  color: #fff;
 }
 
-#myFilter:focus {
-    background-color: #112E47;
-    border: 1px solid #fff;
-    outline: none;
-    color: #fff;
+.copy-write-column {
+  display: block;
+  width: 200px;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #475A6B;
+  text-align: center;
 }
 
-.copyWriteColumn {
-
-display: block;
- width: 200px;
- margin-top: 30px;
- font-size: 14px;
- font-weight: bold;
- color: #475A6B;
- text-align: center;
-
-}
 .feature-point {
-
- width: 100%;
- margin-top: 30px;
- font-size: 15px;
- font-weight: bold;
- color: #475A6B;
- text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #475A6B;
+  text-align: center;
 }
+
 .how-to-icon {
-
-    width: 10%; 
-    height: 10%; 
-    text-align: center;
+  width: 10%;
+  height: 10%;
+  text-align: center;
 }
-.description {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    width: 200px;
-    font-weight: inherit;
-    font-style: inherit;
-    font-family: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-    word-wrap: break-word;
 
+.description {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  width: 200px;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  word-wrap: break-word;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 30%;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 30%;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(1,1,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(1, 1, 0, 0.2);
 }
 
 .container {
-    padding: 2px 50px;
+  padding: 2px 50px;
 }
+
 .title {
-    color: #011b33;
-    font-family: "Boing", sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    margin: 0;
-    text-align: center;
+  color: #011b33;
+  font-family: "Boing", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
 }
+
 .footer {
-    
-    color: #011b33;
-    font-family: "Boing", sans-serif;
-    font-size: 0.8rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin: 0;
-    text-align: center;
+  color: #011b33;
+  font-family: "Boing", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .notify-icon {
-    color: #3BB75E;
-}
-.notify-count{
-    color: #3BB75E;
+  color: #3BB75E;
 }
 
+.notify-count {
+  color: #3BB75E;
+}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+
 @media (max-width: 600px) {
-    .row {
-      -webkit-flex-direction: column;
-      flex-direction: column;
-    }
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 /* Container for flexboxes */
+
 .row {
-    display: -webkit-flex;
-    display: flex;
+  display: -webkit-flex;
+  display: flex;
 }
 
 /* Create three equal columns that sits next to each other */
+
 .column {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    padding: 10px;
-    height: 150px; /* Should be removed. Only for demonstration */
-    width: 100px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+  height: 150px;
+  /* Should be removed. Only for demonstration */
+  width: 100px;
 }
 
 .welcome-msg {
-
-    color:#475A6B;
-    text-align: center;
+  color: #475A6B;
+  text-align: center;
 }
 
-.view-button{
-
-    display: block;
-    width: 100%;
-    height: 35px;
-    margin-top: 0;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: #3BB75E;
-    border: none;
-    
-    cursor: pointer;
+.view-button {
+  display: block;
+  width: 100%;
+  height: 35px;
+  margin-top: 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: #3BB75E;
+  border: none;
+  cursor: pointer;
 }
 
-.create-button{
-
-    display: block;
-    width: 200px;
-    height: 35px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: #3BB75E;
-    border: none;
-    
-    cursor: pointer;
+.create-button {
+  display: block;
+  width: 200px;
+  height: 35px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: #3BB75E;
+  border: none;
+  cursor: pointer;
 }
 
-
-
-.edit-button{
-
-    display: block;
-    width: 100%;
-    height: 35px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: #e65100;
-    border: none;
-    
-    cursor: pointer;
+.edit-button {
+  display: block;
+  width: 100%;
+  height: 35px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: #e65100;
+  border: none;
+  cursor: pointer;
 }
 
-
-.resolve-button{
-
-    display: block;
-    width: 100%;
-    height: 35px;
-    margin-top: 0;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: #e65100;
-    border: none;
-    
-    cursor: pointer;
+.resolve-button {
+  display: block;
+  width: 100%;
+  height: 35px;
+  margin-top: 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: #e65100;
+  border: none;
+  cursor: pointer;
 }
 
-.approve-button{
-
-    width: 10%;
-    height: 35px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: #3BB75E;
-    border: none;
-    
-    cursor: pointer;
+.approve-button {
+  width: 10%;
+  height: 35px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: #3BB75E;
+  border: none;
+  cursor: pointer;
 }
 
-.decline-button{
-
-    width: 10%;
-    height: 35px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px rgba(white, 0.5);
-    background: maroon;
-    border: none;
-    
-    cursor: pointer;
+.decline-button {
+  width: 10%;
+  height: 35px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, 0.5);
+  background: maroon;
+  border: none;
+  cursor: pointer;
 }
 
-table { 
-	width: 80%; 
-	border-collapse: collapse; 
-    margin:50px auto;
-   
-    }
-    
-.details-page { 
-        width: 40%; 
-        border-collapse: collapse; 
-        margin:50px auto;
-       
-    }
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+.details-page {
+  width: 40%;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
 
 /* Zebra striping */
-tr:nth-of-type(odd) { 
-    background: #eee; 
-    font-size: 14px;
-	}
 
-th { 
-	background: #011b33; 
-	color: white; 
-    font-weight: bold; 
-    font-size: 14px;
-	}
+tr:nth-of-type(odd) {
+  background: #eee;
+  font-size: 14px;
+}
 
-td, th { 
-	padding: 10px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-	font-size: 14px;
-	}
+th {
+  background: #011b33;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 14px;
+}
 
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
 
-	table { 
-	  	width: 100%; 
-	}
-
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-		/* Label the data */
-		content: attr(data-column);
-
-		color: #000;
-		font-weight: bold;
-    }
-    
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+  }
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+    color: #000;
+    font-weight: bold;
+  }
 }
 
 .profile-photo {
-
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    display: block;
-    margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 .resolved-request-header-photo {
-
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .resolved-request-header {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
 
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 40px;
-    margin-top: 30px;
+.menu-icon {
+  width: 12px;
+  height: 12px;
 }
