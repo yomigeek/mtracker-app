@@ -28,6 +28,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.4",
     "body-parser": "*",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
