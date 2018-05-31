@@ -5,7 +5,7 @@ import database from '../models/database';
 class UserLoginController {
   // Method to login the users with the required credentials
   static userLogin(req, res) {
-    const dbQuery = `SELECT id, role, password, fullname FROM users WHERE email= '${req.body.email}'`;
+    const dbQuery = `SELECT id, role, password, username FROM users WHERE email= '${req.body.email.trim()}'`;
     database.query(dbQuery, (err, response) => {
       if (response.rows.length < 1) {
         return res.status(400).json({
@@ -22,7 +22,7 @@ class UserLoginController {
           message: 'Login successful',
           data: {
             mytoken,
-            username: response.rows[0].fullname,
+            username: response.rows[0].username,
           },
         });
       }

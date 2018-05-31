@@ -1,8 +1,8 @@
 class Validate {
   static checkRequestInputs(req, res, next) {
-    const titleRequest = req.body.title;
+    const titleRequest = req.body.title.trim();
     const descriptionRequest = req.body.description;
-    const priorityRequest = req.body.priority;
+    const priorityRequest = req.body.priority.trim();
 
     if ((!titleRequest) || (!descriptionRequest) || (!priorityRequest)) {
       return res.status(500).json({
@@ -23,10 +23,10 @@ class Validate {
         status: 'fail',
         message: 'title cannot be empty!',
       });
-    } else if (title.length < 10) {
+    } else if (title.length < 6) {
       return res.status(400).json({
         status: 'fail',
-        message: 'Title must be more than 10 characters',
+        message: 'Title must be more than 6 characters',
       });
     } else if (trimedTitle.length <= 0) {
       return res.status(400).json({
@@ -67,36 +67,36 @@ class Validate {
   }
 
   static signUpValidate(req, res, next) {
-    const fullname = req.body.fullname;
-    const email = req.body.email;
-    const department = req.body.department;
-    const password = req.body.password;
-    const trimedFullname = fullname.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
+    const username = req.body.username.trim();
+    const email = req.body.email.trim();
+    const department = req.body.department.trim();
+    const password = req.body.password.trim();
+    const trimedusername = username.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const trimedEmail = email.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const trimedDepartment = department.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const trimedPassword = password.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const regularExpressionEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regularExpressionOthers = /^[a-zA-Z0-9- ]*$/;
 
-    if (!fullname) {
+    if (!username) {
       return res.status(400).json({
         status: 'fail',
-        message: 'fullname cannot be empty!',
+        message: 'username cannot be empty!',
       });
-    } else if (fullname.length < 2) {
+    } else if (username.length < 2) {
       return res.status(400).json({
         status: 'fail',
-        message: 'fullname must be more than 2 characters',
+        message: 'username must be more than 2 characters',
       });
-    } else if (!regularExpressionOthers.test(fullname)) {
+    } else if (!regularExpressionOthers.test(username)) {
       return res.status(400).json({
         status: 'fail',
-        message: 'Wrong fullname format! Can only contain spaces, hypens as special characters',
+        message: 'Wrong username format! Can only contain spaces, hypens as special characters',
       });
-    } else if (trimedFullname.length <= 0) {
+    } else if (trimedusername.length <= 0) {
       return res.status(400).json({
         status: 'fail',
-        message: 'Fullname cannot be empty',
+        message: 'username cannot be empty',
       });
     } else if (!email) {
       return res.status(400).json({
@@ -154,8 +154,8 @@ class Validate {
   }
 
   static checkLogin(req, res, next) {
-    const email = req.body.email;
-    const password = req.body.password;
+    const email = req.body.email.trim();
+    const password = req.body.password.trim();
     const trimedEmail = email.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const trimedPassword = password.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
     const regularExpressionEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -7,8 +7,6 @@ function userLogin(event) {
   document.querySelector('.working-msg').style.display = 'block';
   document.querySelector('#postForm').style.display = 'none';
 
-
-
   event.preventDefault();
 
   let userEmail = document.getElementById('emailtext').value;
