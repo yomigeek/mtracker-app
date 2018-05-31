@@ -302,7 +302,7 @@ form {
 .form-signup {
   margin: 0 auto;
   width: 320px;
-  height: 390px;
+  height: 430px;
   padding: 20px;
   background: #f4f4f4;
   border-radius: 8px;
@@ -370,7 +370,7 @@ button {
    
   color: #b71c1c;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 30px;
   display: none;
 
@@ -381,6 +381,7 @@ button {
   text-align: center;
   font-size: 15px;
   margin-top: 50px;
+  margin-bottom: 60px;
   display: none;
 
 }
