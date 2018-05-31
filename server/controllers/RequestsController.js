@@ -24,9 +24,9 @@ class RequestsController {
   }
 
   static getAllRequests(req, res) {
-    const dbQuery = (`SELECT title, description, priority, values FROM requests 
+    const dbQuery = (`SELECT requests.title, requests.description, requests.priority, values, requests.id FROM requests 
     INNER JOIN request_status ON requests.status = request_status.id 
-    WHERE requests.userid= '${req.decoded.id}'`);
+    WHERE requests.userid= '${req.decoded.id}' ORDER BY requests.status`);
 
     database.query(dbQuery, (err, response) => {
       if (err) {

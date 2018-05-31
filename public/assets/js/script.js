@@ -53,7 +53,7 @@ function myFilterTableFunction() {
     byRequestId = tr[i].getElementsByTagName("td")[2];
     byTitle = tr[i].getElementsByTagName("td")[3];
     byDescription = tr[i].getElementsByTagName("td")[4];
-    byPriority = tr[i].getElementsByTagName("td")[6];
+    byPriority = tr[i].getElementsByTagName("td")[5];
     if (byRequesterName || byRequestId || byTitle || byDescription || byPriority) {
       if (byRequesterName.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
