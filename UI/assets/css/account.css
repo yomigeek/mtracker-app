@@ -230,6 +230,16 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:foc
   outline: none;
 }
 
+textarea, select {
+  width: 100%;
+  padding: 12px 7px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
 .submit-button {
   display: block;
   width: 100%;
@@ -283,6 +293,16 @@ form {
   margin: 0 auto;
   width: 320px;
   height: 295px;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.form-signup {
+  margin: 0 auto;
+  width: 320px;
+  height: 390px;
   padding: 20px;
   background: #f4f4f4;
   border-radius: 8px;
@@ -344,4 +364,34 @@ button {
   background-color: #fff;
   color: #112E47;
   text-align: center;
+}
+
+.error{
+   
+  color: #b71c1c;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 30px;
+  display: none;
+
+}
+.working-msg{
+   
+  color: #112E47;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  display: none;
+
+}
+
+.success-msg{
+   
+  color: #3BB75E;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 50px;
+  display: none;
+
 }

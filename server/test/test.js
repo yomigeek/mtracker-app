@@ -15,7 +15,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
+        username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
       })
       .end((err, res) => {
         res.should.have.status(201);
@@ -34,7 +34,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
+        username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'technology',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -47,13 +47,13 @@ describe('User Accounts API Tests', () => {
       });
   });
 
-  it('should return fail on empty fullname on create a user account on /api/v1/auth/signup POST', (done) => {
+  it('should return fail on empty username on create a user account on /api/v1/auth/signup POST', (done) => {
     before(() => console.log('Testing started'));
     after(() => console.log('Testing finished!'));
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: '', email: 'yomi@gmail.com', password: '123456', department: 'tech',
+        username: '', email: 'yomi@gmail.com', password: '123456', department: 'tech',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -66,13 +66,13 @@ describe('User Accounts API Tests', () => {
       });
   });
 
-  it('should return fail on fullname less than two characters on create a user account on /api/v1/auth/signup POST', (done) => {
+  it('should return fail on username less than two characters on create a user account on /api/v1/auth/signup POST', (done) => {
     before(() => console.log('Testing started'));
     after(() => console.log('Testing finished!'));
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'y', email: 'yomi@gmail.com', password: '123456', department: 'tech',
+        username: 'y', email: 'yomi@gmail.com', password: '123456', department: 'tech',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -85,13 +85,13 @@ describe('User Accounts API Tests', () => {
       });
   });
 
-  it('should return fail on fullname conatining sepecial characters on create a user account on /api/v1/auth/signup POST', (done) => {
+  it('should return fail on username conatining sepecial characters on create a user account on /api/v1/auth/signup POST', (done) => {
     before(() => console.log('Testing started'));
     after(() => console.log('Testing finished!'));
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi $', email: 'yomi@gmail.com', password: '123456', department: 'tech',
+        username: 'Yomi $', email: 'yomi@gmail.com', password: '123456', department: 'tech',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -110,7 +110,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: '', password: '123456', department: 'tech',
+        username: 'Yomi Olaoye', email: '', password: '123456', department: 'tech',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -129,7 +129,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'user@', password: '123456', department: 'tech',
+        username: 'Yomi Olaoye', email: 'user@', password: '123456', department: 'tech',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -148,7 +148,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi olaoye', email: 'yomi@gmail.com', password: '123456', department: '',
+        username: 'Yomi olaoye', email: 'yomi@gmail.com', password: '123456', department: '',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -167,7 +167,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'yomi olaoye', email: 'yomi@gmail.com', password: '123456', department: 'T',
+        username: 'yomi olaoye', email: 'yomi@gmail.com', password: '123456', department: 'T',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -186,7 +186,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'tech$',
+        username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'tech$',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -205,7 +205,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: ' ', department: 'technology',
+        username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: ' ', department: 'technology',
       })
       .end((err, res) => {
         res.should.have.status(400);
@@ -224,7 +224,7 @@ describe('User Accounts API Tests', () => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .send({
-        fullname: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '1234', department: 'technology',
+        username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '1234', department: 'technology',
       })
       .end((err, res) => {
         res.should.have.status(400);

@@ -5,13 +5,8 @@ const env = process.env.NODE_ENV || 'development';
 
 require('dotenv').config();
 
-let database;
 
-if (env == 'test') {
-  database = process.env.DATABASE_URL;
-} else {
-  database = process.env.DATABASE_URL;
-}
+const database = process.env.DATABASE_URL;
 
 const connectString = database;
 const clientString = new Client(connectString);
@@ -40,13 +35,13 @@ const createTable = () => {
    
               id SERIAL PRIMARY KEY,
    
-              fullname VARCHAR (100) NOT NULL,
+              username VARCHAR (100) NOT NULL,
    
               email VARCHAR (255) UNIQUE NOT NULL,
 
               department VARCHAR (100) NOT NULL,
    
-              password VARCHAR (150) NOT NULL,
+              password VARCHAR (255) NOT NULL,
    
               role user_role DEFAULT 'user' ,
               
@@ -69,7 +64,7 @@ const createTable = () => {
           CREATE TABLE IF NOT EXISTS requests (
             
             id serial PRIMARY KEY,
-            
+          
             userId int REFERENCES users(id),
                         
             title VARCHAR(255) NOT NULL,
@@ -86,7 +81,7 @@ const createTable = () => {
 
           INSERT INTO users (
 
-            fullname,
+            username,
 
             email,
 
@@ -114,7 +109,7 @@ const createTable = () => {
 
           INSERT INTO users (
 
-            fullname,
+            username,
 
             email,
 

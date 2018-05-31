@@ -80,7 +80,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: ' ', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(500);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -91,7 +91,7 @@ describe('User request API Tests', () => {
       });
   });
 
-  it('should fail on title less than 10 characters on /api/v1/users/requests POST', (done) => {
+  it('should fail on title less than 6 characters on /api/v1/users/requests POST', (done) => {
     chai.request(app)
       .post('/api/v1/users/requests')
       .set('x-access-token', token)
@@ -148,7 +148,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt office cable', description: 'The office cable is bad', priority: ' ' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(500);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -216,7 +216,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: ' ', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(500);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -284,7 +284,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt laptop charger cable', description: 'Burnt charger for office laptop', priority: ' ' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(500);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
