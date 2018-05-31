@@ -19,18 +19,33 @@
 
   <div id="container">
 
-    <form id="postForm" action="admin_dashboard.html">
+    <p class="working-msg">
+      Checking Credentials and Connecting!
+    </p>
+    <p class="success-msg">
+      Login Successful and redirecting to dashboard in a few seconds
+    </p>
+
+    <form id="postForm" action="#">
 
       <p class="category-panel-header"> Login to your Account</p>
 
-      <input type="email" placeholder=" Email " id="text" required/>
-      <input type="password" placeholder=" Password " id="text" required/>
+      <input type="hidden" id="url" value="/user_dashboard.html">
 
-      <div align="center">
+      <input type="email" placeholder=" Email " id="emailtext" required/>
+
+      <input type="password" placeholder=" Password " id="passwordtext" required/>
+
+      <div>
         <input type="submit" class="submit-button" id="submit" value="Login" />
       </div>
 
+      <p class="error" id="error">
+        Wrong Login details!
+      </p>
+
     </form>
+
 
     <p align="center" class="form-footer">
 
@@ -49,7 +64,7 @@
 
   <p class="footer">© 2018. M-tracker.</p>
 
-  <script>
+  <script src="./assets/js/fetch.js">
 
   </script>
 
