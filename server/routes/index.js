@@ -8,6 +8,8 @@ import CheckRequest from '../middlewares/CheckRequest';
 import RequestTypeSelector from '../middlewares/RequestTypeSelector';
 import Validate from '../validations/Validate';
 import CheckRole from '../validations/CheckRole';
+import CheckRequestId from '../validations/CheckRequestId';
+import CheckRequestPost from '../middlewares/CheckRequestPost';
 
 import auth from '../auth';
 
@@ -39,28 +41,28 @@ routes.post('/auth/login', Validate.checkLogin, UserLoginController.userLogin);
 // Get all logged in user requests
 routes.get('/users/requests', auth, RequestsController.getAllRequests);
 // Create a request in DB
-routes.post('/users/requests', auth, Validate.checkRequestInputs, RequestsController.createRequest);
+routes.post('/users/requests', auth, Validate.checkRequestInputs, CheckRequestPost.checker, RequestsController.createRequest);
 // Get a user request detail
-routes.get('/users/requests/:requestId', auth, RequestsController.getRequestById);
+routes.get('/users/requests/:requestId', CheckRequestId.checker, auth, RequestsController.getRequestById);
 // Modify a request by user
-routes.put('/users/requests/:requestId', auth, CheckRequest.existingRequest, Validate.checkRequestInputs, RequestsController.editRequest);
+routes.put('/users/requests/:requestId', CheckRequestId.checker, auth, CheckRequest.existingRequest, Validate.checkRequestInputs, RequestsController.editRequest);
 // Get all requests by ADMIN
 routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
 // Approve User Request
 routes.put(
-  '/requests/:requestId/approve', auth, CheckRole.checkIfAdmin,
+  '/requests/:requestId/approve', CheckRequestId.checker, auth, CheckRole.checkIfAdmin,
   CheckRequest.existingRequest, RequestTypeSelector.approve,
   AdminRequestController.adminRequestProcess,
 );
 // Disapprove User Request
 routes.put(
-  '/requests/:requestId/disapprove', auth, CheckRole.checkIfAdmin,
+  '/requests/:requestId/disapprove', CheckRequestId.checker, auth, CheckRole.checkIfAdmin,
   CheckRequest.existingRequest, RequestTypeSelector.decline,
   AdminRequestController.adminRequestProcess,
 );
 // Resolve User Request
 routes.put(
-  '/requests/:requestId/resolve', auth, CheckRole.checkIfAdmin,
+  '/requests/:requestId/resolve', CheckRequestId.checker, auth, CheckRole.checkIfAdmin,
   CheckRequest.existingRequest, RequestTypeSelector.resolve,
   AdminRequestController.adminRequestProcess,
 );

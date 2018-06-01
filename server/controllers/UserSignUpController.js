@@ -5,8 +5,8 @@ class UserSignUpController {
   static userSignUp(req, res) {
     const hashedPassword = bcrypt.hashSync(req.body.password.trim(), 10);
 
-    database.query(`${'insert into users (fullname,email,password,department,role) ' +
-    "values ('"}${req.body.fullname.trim()}','${req.body.email.trim()}','${hashedPassword.trim()}','${req.body.department.trim()}','user')`, (err, response) => {
+    database.query(`${'insert into users (username,email,password,department,role) ' +
+    "values ('"}${req.body.username.trim()}','${req.body.email.trim()}','${hashedPassword.trim()}','${req.body.department.trim()}','user')`, (err, response) => {
       if (err) {
         throw err;
       }
@@ -15,7 +15,7 @@ class UserSignUpController {
         status: 'success',
         message: 'User Created Successfully!',
         data: {
-          fullname: req.body.fullname,
+          username: req.body.username,
           email: req.body.email,
           department: req.body.department,
         },
