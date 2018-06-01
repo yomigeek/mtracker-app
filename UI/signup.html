@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>M-Tracker - SignUp</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/css/account.css" />
+  <title>M-Tracker - SignUp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/account.css" />
 
 </head>
-    <body>
-       
-        
-        <p align="center">
-            
-            <img src="./assets/images/logo.png" class="logo" />
-           
-        </p>
-        <p class="app-name">M-Tracker</p>
+
+<body>
+
+
+  <p align="center">
+
+    <img src="./assets/images/logo.png" class="logo" />
+
+  </p>
+  <p class="app-name">M-Tracker</p>
 
   <div id="container">
+
  
-    <form action="login.html" id="merchantForm">
-        
-        <p class="categoryPanelHeader"> Create An Account</p>
 
-        <input type="email" placeholder=" Email " id="text" required/>
+    <form action="login.html" class="form-signup">
 
-        <input type="password" placeholder=" Password " id="text" required/>
+      <p class="category-panel-header"> Create An Account</p>
 
-        <input type="password" placeholder="Confirm Password " id="text" required/>
+      <input type="text" placeholder=" Username " id="username" required/>
 
-        <div align="center">
-            <button class="submitButton" id="submit" onclick=" ">Create Account</button>
-        </div>
+      <input type="email" placeholder=" Email " id="email" required/>
+
+      <input type="password" placeholder=" Password " id="password" required/>
+
+      <select name="department">
+        <option value=" ">Select Department</option>
+        <option value="IT">IT</option>
+        <option value="Finance">Finance</option>
+        <option value="HR">HR</option>
+      </select>
+
+      <div align="center">
+        <button class="submit-button" id="submit" onclick=" ">Create Account</button>
+      </div>
     </form>
-   
+
     <p align="center" class="form-footer">
-                
-            Already have an account? <a href="login.html" class="formLinkColor">Login</a>
-      
+
+      Already have an account?
+      <a href="login.html" class="form-link-color">Login</a>
+
     </p>
     <p align="center" class="form-footer">
-                
-            <a href="index.html" class="formLinkColor">Back Home</a>
-       
-     </p>
+
+      <a href="index.html" class="form-link-color">Back Home</a>
+
+    </p>
 
 
-</div>
-        <p class="footer">© 2018. M-tracker.</p>
-       
-        
-        <script>
-            
-        </script>
+  </div>
+  <p class="footer">© 2018. M-tracker.</p>
 
-    </body>
+
+  <script>
+
+  </script>
+
+</body>
+
 </html>
