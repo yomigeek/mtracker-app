@@ -80,7 +80,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: ' ', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(500);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -97,7 +97,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -114,7 +114,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt office cable', description: ' ', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -131,7 +131,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt office cable', description: 'The', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -148,7 +148,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt office cable', description: 'The office cable is bad', priority: ' ' })
       .end((err, res) => {
-        res.should.have.status(500);
+        res.should.have.status(400);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -216,7 +216,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: ' ', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(500);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -233,7 +233,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt', description: 'Cable in office B is faulty', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -250,7 +250,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt laptop charger cable', description: ' ', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -267,7 +267,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt laptop charger cable', description: 'Burnt', priority: 'high' })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -284,7 +284,7 @@ describe('User request API Tests', () => {
       .set('x-access-token', token)
       .send({ title: 'Burnt laptop charger cable', description: 'Burnt charger for office laptop', priority: ' ' })
       .end((err, res) => {
-        res.should.have.status(500);
+        res.should.have.status(400);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
