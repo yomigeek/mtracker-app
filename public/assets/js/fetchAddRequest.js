@@ -1,18 +1,26 @@
-document.getElementById('signup-form').addEventListener('submit', userSignup);
+document.getElementById('request-form').addEventListener('submit', addRequest);
 
 const baseUrl = 'https://mtrack-app.herokuapp.com';
 
 const token = localStorage.getItem("token");
 
-
 const htmlElementDisplay = (htmlId, displayStyle) => {
   document.getElementById(htmlId).style.display = displayStyle;
 }
 
+htmlElementDisplay('request-create', 'none');
+htmlElementDisplay('request-success', 'none');
+htmlElementDisplay('request-fail', 'none');
+htmlElementDisplay('error', 'none');
+
+
+
 function addRequest(event) {
 
   htmlElementDisplay('request-create', 'block');
-  htmlElementDisplay('request-form', 'none');
+  htmlElementDisplay('request-details-box', 'none');
+  htmlElementDisplay('request-fail', 'none');
+  htmlElementDisplay('request-success', 'none');
 
   event.preventDefault();
 
@@ -25,7 +33,6 @@ function addRequest(event) {
     headers: {
       "Content-Type": "application/json",
       "x-access-token": token,
-
     },
     body: JSON.stringify({ title: requestTitle, description: requestDescription, priority: requestPriority })
   }).then((response) => { return response.json() })
@@ -34,12 +41,15 @@ function addRequest(event) {
       if (data.status == 'success') {
 
         htmlElementDisplay('request-success', 'block');
-        htmlElementDisplay('request-form', 'block');
+        htmlElementDisplay('request-details-box', 'block');
+        htmlElementDisplay('request-create', 'none');
+
 
       } else {
 
+        htmlElementDisplay('request-create', 'none');
         htmlElementDisplay('request-fail', 'block');
-        htmlElementDisplay('request-form', 'block');
+        htmlElementDisplay('request-details-box', 'block');
         htmlElementDisplay('error', 'block');
         document.getElementById('error').innerHTML = data.message;
       }
