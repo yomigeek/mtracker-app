@@ -52,7 +52,7 @@ describe('User Login API Tests', () => {
         email: ' ', password: '123456',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -69,7 +69,7 @@ describe('User Login API Tests', () => {
         email: 'yomi@gmail.com', password: ' ',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -86,7 +86,7 @@ describe('User Login API Tests', () => {
         email: 'yomi@', password: '123456',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');

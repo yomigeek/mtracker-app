@@ -6,10 +6,10 @@ import AdminRequestController from '../controllers/AdminRequestController';
 import CheckExistingUser from '../middlewares/CheckExistingUser';
 import CheckRequest from '../middlewares/CheckRequest';
 import RequestTypeSelector from '../middlewares/RequestTypeSelector';
-import Validate from '../validations/Validate';
 import CheckRole from '../validations/CheckRole';
 import CheckRequestId from '../validations/CheckRequestId';
 import CheckRequestPost from '../middlewares/CheckRequestPost';
+import { userSignUpValidate, userLoginValidate, userRequestValidate } from '../validations/UserAccountValidation';
 
 import auth from '../auth';
 
@@ -17,9 +17,8 @@ const routes = express.Router();
 
 
 // DEFAULT message
-routes.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to the mTracker API',
-}));
+routes.get('/', (req, res) => res.redirect('https://mtracker1.docs.apiary.io'));
+
 
 // User API Routes
 
@@ -35,17 +34,20 @@ routes.get('/', (req, res) => res.status(200).send({
 // Persistent Data
 
 // Sign user up
-routes.post('/auth/signup', Validate.signUpValidate, CheckExistingUser.checker, UserSignUpController.userSignUp);
+routes.post('/auth/signup', userSignUpValidate, CheckExistingUser.checker, UserSignUpController.userSignUp);
 // Sign login
-routes.post('/auth/login', Validate.checkLogin, UserLoginController.userLogin);
+routes.post('/auth/login', userLoginValidate, UserLoginController.userLogin);
 // Get all logged in user requests
 routes.get('/users/requests', auth, RequestsController.getAllRequests);
 // Create a request in DB
-routes.post('/users/requests', auth, Validate.checkRequestInputs, CheckRequestPost.checker, RequestsController.createRequest);
+routes.post('/users/requests', auth, userRequestValidate, CheckRequestPost.checker, RequestsController.createRequest);
 // Get a user request detail
 routes.get('/users/requests/:requestId', CheckRequestId.checker, auth, RequestsController.getRequestById);
 // Modify a request by user
-routes.put('/users/requests/:requestId', CheckRequestId.checker, auth, CheckRequest.existingRequest, Validate.checkRequestInputs, RequestsController.editRequest);
+routes.put(
+  '/users/requests/:requestId', CheckRequestId.checker,
+  auth, CheckRequest.existingRequest, userRequestValidate, RequestsController.editRequest,
+);
 // Get all requests by ADMIN
 routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
 // Approve User Request

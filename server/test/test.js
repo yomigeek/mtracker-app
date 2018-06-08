@@ -75,7 +75,7 @@ describe('User Accounts API Tests', () => {
         username: 'y', email: 'yomi@gmail.com', password: '123456', department: 'tech',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -94,7 +94,7 @@ describe('User Accounts API Tests', () => {
         username: 'Yomi $', email: 'yomi@gmail.com', password: '123456', department: 'tech',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -132,7 +132,7 @@ describe('User Accounts API Tests', () => {
         username: 'Yomi Olaoye', email: 'user@', password: '123456', department: 'tech',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -170,7 +170,7 @@ describe('User Accounts API Tests', () => {
         username: 'yomi olaoye', email: 'yomi@gmail.com', password: '123456', department: 'T',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -189,7 +189,7 @@ describe('User Accounts API Tests', () => {
         username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '123456', department: 'tech$',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -208,7 +208,7 @@ describe('User Accounts API Tests', () => {
         username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: ' ', department: 'technology',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
@@ -227,7 +227,7 @@ describe('User Accounts API Tests', () => {
         username: 'Yomi Olaoye', email: 'yomi@gmail.com', password: '1234', department: 'technology',
       })
       .end((err, res) => {
-        res.should.have.status(400);
+        res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('status');
