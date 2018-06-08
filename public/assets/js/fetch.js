@@ -2,10 +2,15 @@ document.getElementById('postForm').addEventListener('submit', userLogin);
 
 const baseUrl = 'https://mtrack-app.herokuapp.com';
 
+
+const htmlElementDisplay = (htmlId, displayStyle) => {
+  document.getElementById(htmlId).style.display = displayStyle;
+}
+
 function userLogin(event) {
 
-  document.querySelector('.working-msg').style.display = 'block';
-  document.querySelector('#postForm').style.display = 'none';
+  htmlElementDisplay('working-msg', 'block');
+  htmlElementDisplay('postForm', 'none');
 
   event.preventDefault();
 
@@ -23,10 +28,9 @@ function userLogin(event) {
     .then((data) => {
       if (data.status == 'success') {
 
-
-        document.querySelector('.working-msg').style.display = 'none';
-        document.querySelector('.success-msg').style.display = 'block';
-        document.querySelector('#postForm').style.display = 'none';
+        htmlElementDisplay('working-msg', 'none');
+        htmlElementDisplay('success-msg', 'block');
+        htmlElementDisplay('postForm', 'none');
 
         const url = document.getElementById('url').value;
 
@@ -37,12 +41,11 @@ function userLogin(event) {
 
       } else {
 
-        document.querySelector('#postForm').style.display = 'block';
-        document.querySelector('.error').style.display = 'block';
-        document.querySelector('.working-msg').style.display = 'none';
+        htmlElementDisplay('postForm', 'block');
+        htmlElementDisplay('error', 'block');
+        htmlElementDisplay('working-msg', 'none');
+        htmlElementDisplay('form-footer', 'block');
         document.getElementById('error').innerHTML = data.message;
-
-
       }
     }
     )

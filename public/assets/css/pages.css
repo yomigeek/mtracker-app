@@ -459,3 +459,13 @@ and also iPads specifically.
   width: 15px;
   height: 15px;
 }
+.error{
+   
+  color: #b71c1c;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  font-weight: bold;
+
+}

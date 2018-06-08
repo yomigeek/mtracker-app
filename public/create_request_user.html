@@ -39,31 +39,36 @@
   </p>
   <div id="container">
 
-    <div class="approve-category-panel">
+    <div class="approve-category-panel" id="request-success">
       Request Created Succesfully!
     </div>
-    <div class="decline-category-panel">
+    <div class="approve-category-panel" id="request-create">
+        Creating request....
+      </div>
+    <div class="decline-category-panel" id="request-fail">
       Creating Request failed!
     </div>
+    
+    <p id="error" class="error">...</p>
 
     <div class="details-container" id="request-details-box">
 
-      <form action="#" id="">
+      <form action="#" id="request-form">
         <h5>Title</h5>
-        <input type="text" placeholder="title here..." id="text" required/>
+        <input type="text" placeholder="title here..." id="title" required/>
 
         <h5>Description</h5>
-        <textarea rows="5" placeholder="Description here..." required></textarea>
+        <textarea rows="5" placeholder="Description here..." id="description" required></textarea>
 
         <h5>Prority</h5>
-        <select name="request_type">
+        <select name="request_type" id="priority">
           <option value="1">Low</option>
           <option value="2">Mediium</option>
           <option value="3">High</option>
         </select>
 
         <div>
-          <button class="submit-button" id="submit" onclick=" ">Create Request</button>
+            <input type="submit" class="submit-button" id="submit" value="Create Request" />
         </div>
       </form>
 
@@ -74,7 +79,7 @@
 
     <p class="footer">© 2018. M-tracker.</p>
 
-    <script src="./assets/js/script.js">
+    <script src="./assets/js/fetchAddRequest.js">
 
     </script>
 

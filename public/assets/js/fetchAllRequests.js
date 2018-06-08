@@ -3,11 +3,22 @@ const BASE_URL = 'https://mtrack-app.herokuapp.com';
 
 const token = localStorage.getItem("token");
 
-document.getElementById('loader-img').innerHTML = '<img src="./assets/images/loader.gif" class="loader-img" />';
-document.getElementById('loader').innerHTML = '...Loading Requests...';
-document.getElementById('error').style.display = 'none';
 
-document.getElementById('welcome-msg').innerHTML = 'Welcome' + ' ' + localStorage.getItem("name");
+const innerHtmlDisplay = (htmlId, display) => {
+  return document.getElementById(htmlId).innerHTML = display;
+}
+
+const htmlElementDisplay = (htmlId, displayStyle) => {
+  return document.getElementById(htmlId).style.display = displayStyle;
+}
+
+innerHtmlDisplay('loader-img', '<img src="./assets/images/loader.gif" class="loader-img" />');
+innerHtmlDisplay('loader', '...Loading Requests...');
+htmlElementDisplay('error', 'none');
+innerHtmlDisplay('welcome-msg', 'Welcome' + ' ' + localStorage.getItem("name"));
+
+
+// document.getElementById('welcome-msg').innerHTML = 'Welcome' + ' ' + localStorage.getItem("name");
 
 setInterval(loadRequests(), 4000);
 
@@ -22,13 +33,12 @@ function loadRequests(event) {
   }).then((response) => { return response.json() })
     .then((data) => {
       if (data.status == 'fail' && data.message == 'User does not have a reqeuest yet!') {
-
-        document.getElementById('request-table').style.display = 'none';
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('error').innerHTML = 'You are yet to add a request!';
-        document.getElementById('loader-img').style.display = 'none';
-        document.getElementById('loader').style.display = 'none';
-
+        
+        htmlElementDisplay('request-table', 'none');
+        htmlElementDisplay('error', 'block');
+        htmlElementDisplay('loader-img', 'none');
+        htmlElementDisplay('loader', 'none');        
+        innerHtmlDisplay('error', 'You are yet to add a request!');
       }
       else {
         for (i = 0; i < data.data.requests.length; i++) {
@@ -45,19 +55,18 @@ function loadRequests(event) {
           const actionCell = row.insertCell(5);
 
           let actionValue;
-          if (requests.values == 'pending') {
+          if (requests.status == 1) {
             actionValue = '<a href= "edit_request_user.html?requestId=' + requests.priority + ' ">' + '<button class="edit-button" onclick=" ">View / Edit</button></a>';
-          } else if (requests.values == 'approve') {
-            actionValue = 'APPROVED';
-          } else if (requests.values == 'declined') {
-            actionValue = 'DECLINED';
-          } else if (requests.values == 'resolve') {
-            actionValue = 'RESOLVED';
+          } else if (requests.status == 2) {
+            actionValue = requests.values;
+          } else if (requests.status == 3) {
+            actionValue = requests.values;
+          } else if (requests.status == 4) {
+            actionValue = requests.values;
           }
           else {
             actionValue = '';
           }
-
 
           serialNumberCell.innerHTML = i + 1;
           requestIdCell.innerHTML = requests.id;
@@ -66,13 +75,10 @@ function loadRequests(event) {
           priorityCell.innerHTML = requests.priority;
           actionCell.innerHTML = actionValue;
 
-
-          // demoP.innerHTML = demoP.innerHTML + "index[" + index + "]: " + item + "<br>";
         }
-        document.getElementById('loader-img').style.display = 'none';
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('error').style.display = 'none';
-
+        htmlElementDisplay('loader-img', 'none');        
+        htmlElementDisplay('loader', 'none');        
+        htmlElementDisplay('error', 'none'); 
       }
     }
     )

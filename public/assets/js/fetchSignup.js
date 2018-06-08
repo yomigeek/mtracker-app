@@ -2,38 +2,44 @@ document.getElementById('signup-form').addEventListener('submit', userSignup);
 
 const baseUrl = 'https://mtrack-app.herokuapp.com';
 
+const htmlElementDisplay = (htmlId, displayStyle) => {
+  document.getElementById(htmlId).style.display = displayStyle;
+}
+
 function userSignup(event) {
 
-  document.querySelector('#signup-process').style.display = 'block';
-  document.querySelector('#signup-form').style.display = 'none';
+  htmlElementDisplay('signup-process', 'block');
+  htmlElementDisplay('signup-form', 'none');
 
   event.preventDefault();
 
   let userEmail = document.getElementById('email').value;
   let userPassword = document.getElementById('password').value;
   let userDepartment = document.getElementById('department').value;
-  let userFullname = document.getElementById('fullname').value;
+  let myUsername = document.getElementById('username').value;
 
   fetch(baseUrl + '/api/v1/auth/signup', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email: userEmail, password: userPassword, fullname: userFullname, department: userDepartment })
+    body: JSON.stringify({ email: userEmail, password: userPassword, username: myUsername, department: userDepartment })
   }).then((response) => { return response.json() })
     .then((data) => {
 
       if (data.status == 'success') {
 
-        document.getElementById('success-box').style.display = 'block';
-        document.getElementById('signup-process').style.display = 'none';
-        document.querySelector('#signup-form').style.display = 'none';
+        htmlElementDisplay('success-box', 'block');
+        htmlElementDisplay('signup-process', 'none');
+        htmlElementDisplay('signup-form', 'none');
+        htmlElementDisplay('form-footer', 'none');
 
       } else {
-        document.getElementById('signup-process').style.display = 'none';
-        document.getElementById('success-box').style.display = 'none';
-        document.getElementById('signup-form').style.display = 'block';
-        document.getElementById('error').style.display = 'block';
+
+        htmlElementDisplay('signup-process', 'none');
+        htmlElementDisplay('success-box', 'none');
+        htmlElementDisplay('signup-form', 'block');
+        htmlElementDisplay('error', 'block');
         document.getElementById('error').innerHTML = data.message;
       }
     }
