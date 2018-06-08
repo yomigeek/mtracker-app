@@ -50,7 +50,7 @@ class RequestsController {
   }
 
   static getRequestById(req, res) {
-    const dbQuery = (`SELECT title, description, priority, values FROM requests 
+    const dbQuery = (`SELECT requests.title, requests.description, requests.priority, values, requests.id FROM requests 
     INNER JOIN request_status ON requests.status = request_status.id 
     WHERE requests.userid= '${req.decoded.id}' AND requests.id= '${req.params.requestId}' `);
 
