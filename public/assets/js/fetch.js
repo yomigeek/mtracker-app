@@ -31,6 +31,7 @@ function userLogin(event) {
         htmlElementDisplay('working-msg', 'none');
         htmlElementDisplay('success-msg', 'block');
         htmlElementDisplay('postForm', 'none');
+        htmlElementDisplay('form-footer', 'none');
 
         const url = document.getElementById('url').value;
 

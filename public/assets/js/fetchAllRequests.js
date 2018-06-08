@@ -56,7 +56,7 @@ function loadRequests(event) {
 
           let actionValue;
           if (requests.status == 1) {
-            actionValue = '<a href= "edit_request_user.html?requestId=' + requests.priority + ' ">' + '<button class="edit-button" onclick=" ">View / Edit</button></a>';
+            actionValue = '<a href= "edit_request_user.html?requestId=' + requests.id + ' ">' + '<button class="edit-button" onclick=" ">View / Edit</button></a>';
           } else if (requests.status == 2) {
             actionValue = requests.values;
           } else if (requests.status == 3) {
