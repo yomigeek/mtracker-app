@@ -29,6 +29,7 @@ class UserLoginController {
           data: {
             mytoken,
             username: response.rows[0].username,
+            role: response.rows[0].role,
           },
         });
       }

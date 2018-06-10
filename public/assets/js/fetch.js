@@ -33,12 +33,20 @@ function userLogin(event) {
         htmlElementDisplay('postForm', 'none');
         htmlElementDisplay('form-footer', 'none');
 
-        const url = document.getElementById('url').value;
+        // const url = document.getElementById('url').value;
 
         localStorage.setItem("token", data.data.mytoken);
         localStorage.setItem("name", data.data.username);
+        console.log(data.data.role);
 
-        window.location.href = url;
+        if (data.data.role == 'user') {
+          console.log('user');
+          window.location.href = '/user_dashboard.html';
+        }
+        if (data.data.role == 'admin') {
+          console.log('admin');
+          window.location.href = '/admin_dashboard.html';
+        }
 
       } else {
 

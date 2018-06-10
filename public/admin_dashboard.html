@@ -29,76 +29,67 @@
     <p>
       <img src="./assets/images/profile_photo.png" class="profile-photo" />
     </p>
-    <h5 class="welcome-msg">Welcome Admin,</h5>
+    <h5 class="welcome-msg" id="welcome-msg">...</h5>
   </p>
   <h4 class="resolved-request-header">
     <img src="./assets/images/log-icon.png" class="resolved-request-header-photo" /> Logged Requests</h4>
-  <p class="form-footer">
-
-    <a href="admin_dashboard.html" class="form-link-color">
-      <img src='./assets/images/dot_icon.png' class="menu-icon" /> LOGGED REQUESTS &nbsp;</a>
-    <a href="admin_approved_dashboard.html" class="form-link-color">
-      <img src='./assets/images/dot_icon.png' class="menu-icon" /> APPROVED REQUESTS &nbsp; </a>
-    <a href="admin_cancelled_dashboard.html" class="form-link-color">
-      <img src='./assets/images/dot_icon.png' class="menu-icon" /> DECLINED REQUESTS &nbsp; </a>
-    <a href="admin_resolved_dashboard.html" class="form-link-color">
-      <img src='./assets/images/dot_icon.png' class="menu-icon" /> RESOLVED REQUESTS &nbsp;</a>
-
-  </p>
+    <p class="form-footer">
+      <b class="form-link-color"> Select Menu: </b>
+      <select name="forma" onchange="location = this.value;" >
+        <option value="admin_dashboard.html">LOGGED REQUESTS</option>
+        <option value="admin_approved_dashboard.html">APPROVED REQUESTS</option>
+        <option value="admin_cancelled_dashboard.html">DECLINED REQUESTS</option>
+        <option value="admin_resolved_dashboard.html">RESOLVED REQUESTS</option>
+      </select>
+    
+    </p>    
   <div align="center">
     <input type="text" id="myfilter" onkeyup="myFilterTableFunction()" placeholder="Filter by names,ID,title..." title="Type in a name">
   </div>
   <table id="request-table">
+
     <thead>
       <tr>
         <th>S/N</th>
-        <th>Requester</th>
         <th>Request ID</th>
+        <th>Requester Name</th>
         <th>Title</th>
         <th>Description</th>
         <th>Priority</th>
+        <th>Status</th>
         <th>Action</th>
 
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td data-column="S/N">1</td>
-        <td data-column="Requester">Matman</td>
-        <td data-column="Requester ID">2356</td>
-        <td data-column="Title">AC bad</td>
-        <td data-column="Description">The matman request</td>
-        <td data-column="Priority">High</td>
-        <td data-column="Action">
-          <a href="view_request_admin.html">
-            <button class="view-button" onclick=" ">View Request</button>
-          </a>
+        <td data-column="S/N"></td>
+        <td data-column="Request ID"></td>
+        <td data-column="Requester Name"></td>
+        <td data-column="Title"></td>
+        <td data-column="Description"></td>
+        <td data-column="Priority"></td>
+        <td data-column="Status"></td>
+        <td data-column="Action" id="action-row">
         </td>
 
       </tr>
-      <tr>
-        <td data-column="S/N">2</td>
-        <td data-column="Requester">Yomi</td>
-        <td data-column="Requester ID">456</td>
-        <td data-column="Title">Bulb bad</td>
-        <td data-column="Description">The yomi request</td>
-        <td data-column="Priority">High</td>
-        <td data-column="Action">
-          <a href="view_request_admin.html">
-            <button class="view-button" onclick=" ">View Request</button>
-          </a>
-        </td>
-
-      </tr>
-
     </tbody>
+    <p id="loader-img">...</p>
+    <p id="loader">...</p>
+    <p id="error" class="error">...</p>
+
   </table>
+
 
   <p class="footer">© 2018. M-tracker.</p>
 
-  <script src="./assets/js/script.js">
+  <script src="./assets/js/fetchAdminAllRequests.js">
 
   </script>
+   <script src="./assets/js/script.js">
+
+   </script>
 
 </body>
 
