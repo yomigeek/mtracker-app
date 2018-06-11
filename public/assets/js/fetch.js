@@ -40,11 +40,9 @@ function userLogin(event) {
         console.log(data.data.role);
 
         if (data.data.role == 'user') {
-          console.log('user');
           window.location.href = '/user_dashboard.html';
         }
         if (data.data.role == 'admin') {
-          console.log('admin');
           window.location.href = '/admin_dashboard.html';
         }
 

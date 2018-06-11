@@ -6,7 +6,6 @@ const token = localStorage.getItem("token");
 
 const pageUrl = window.location.href;
 const getRequestId = pageUrl.charAt(pageUrl.length - 1);
-console.log(getRequestId);
 
 const innerHtmlDisplay = (htmlId, display) => {
   return document.getElementById(htmlId).innerHTML = display;

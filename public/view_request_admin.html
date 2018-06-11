@@ -45,6 +45,7 @@
       Request Declined! Requester will be notified shortly.
     </div>
 
+    <p id="error" class="error">...</p>
 
     <div class="details-container" id="request-details-box">
 
@@ -52,44 +53,48 @@
         <b>
           ID:
         </b>
-        23456
+        <font id="request-id">...</font>
+      </p>
+      <p class="category-panel-header">
+        <b>
+          Request Status:
+        </b>
+        <font id="request-status">...</font>
       </p>
       <p class="category-panel-header">
         <b>
           Requester Name:
         </b>
-        Yomi Olaoye
-      </p>
-      <p class="category-panel-header">
-        <b>
-          Unit/Department:
-        </b>
-        Technology
+        <font id="requester-name">...</font>
       </p>
       <p class="category-panel-header">
         <b>
           Title:
         </b>
-        Repair the office AC
+        <font id="request-title">...</font>
       </p>
       <p class="category-panel-header">
         <b>
           Description:
         </b>
-        Reapair system Operating system
+        <font id="request-description">...</font>
       </p>
       <p class="category-panel-header">
         <b>
           Priority:
         </b>
-        High
+        <font id="request-priority">...</font>
+      </p>
+      <p class="category-panel-header">
+        <font id="resolve-message"></font>
       </p>
 
 
-
       <div>
-        <button class="approve-button" id="submit" onclick="approvePanelShow() ">Approve</button>
-        <button class="decline-button" id="submit" onclick="declinePanelShow() ">Decline</button>
+        <button class="approve-button" id="approve-button" onclick="approveRequest() ">Approve</button>
+        <button class="decline-button" id="decline-button" onclick="declineRequest() ">Decline</button>
+        <button class="resolve-button" id="resolve-button" onclick="">Resolve</button>
+        
       </div>
     </div>
 
@@ -98,9 +103,9 @@
 
   <p class="footer">© 2018. M-tracker.</p>
 
-  <script src="./assets/js/script.js">
+  <script src="./assets/js/script.js"></script>
 
-  </script>
+  <script src="./assets/js/fetchAdminARequest.js"></script>
 
 </body>
 
