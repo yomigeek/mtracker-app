@@ -21,7 +21,7 @@ setInterval(loadRequests(), 4000);
 
 function loadRequests(event) {
 
-  fetch(BASE_URL + '/api/v1/users/requests', {
+  fetch(BASE_URL + '/api/v1/requests', {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -29,13 +29,13 @@ function loadRequests(event) {
     },
   }).then((response) => { return response.json() })
     .then((data) => {
-      if (data.status == 'fail' && data.message == 'User does not have a request yet!') {
+      if (data.status == 'fail') {
         
         htmlElementDisplay('request-table', 'none');
         htmlElementDisplay('error', 'block');
         htmlElementDisplay('loader-img', 'none');
         htmlElementDisplay('loader', 'none');        
-        innerHtmlDisplay('error', 'You are yet to add a request!');
+        innerHtmlDisplay('error', data.message);
       }
       else {
         for (i = 0; i < data.data.requests.length; i++) {
@@ -46,20 +46,22 @@ function loadRequests(event) {
           const row = table.insertRow(serialNumber);
           const serialNumberCell = row.insertCell(0)
           const requestIdCell = row.insertCell(1);
-          const titleCell = row.insertCell(2);
-          const descriptionCell = row.insertCell(3);
-          const priorityCell = row.insertCell(4);
-          const actionCell = row.insertCell(5);
+          const requestNameCell = row.insertCell(2);
+          const titleCell = row.insertCell(3);
+          const descriptionCell = row.insertCell(4);
+          const priorityCell = row.insertCell(5);
+          const statusCell = row.insertCell(6);
+          const actionCell = row.insertCell(7);
 
-          let actionValue;
+          let actionValue = '<a href= "view_request_admin.html?requestId=' + requests.id + ' ">' + '<button class="edit-button" onclick=" ">View</button></a>';
           if (requests.status == 1) {
-            actionValue = '<a href= "edit_request_user.html?requestId=' + requests.id + ' ">' + '<button class="edit-button" onclick=" ">View / Edit</button></a>';
-          } else if (requests.status == 2) {
-            actionValue = requests.values;
+            status = requests.values.toUpperCase();
+        } else if (requests.status == 2) {
+            status = requests.values.toUpperCase();
           } else if (requests.status == 3) {
-            actionValue = requests.values;
+            status = requests.values.toUpperCase();
           } else if (requests.status == 4) {
-            actionValue = requests.values;
+            status = requests.values.toUpperCase();
           }
           else {
             actionValue = '';
@@ -67,9 +69,11 @@ function loadRequests(event) {
 
           serialNumberCell.innerHTML = i + 1;
           requestIdCell.innerHTML = requests.id;
+          requestNameCell.innerHTML = requests.username;
           titleCell.innerHTML = requests.title;
           descriptionCell.innerHTML = requests.description;
           priorityCell.innerHTML = requests.priority;
+          statusCell.innerHTML = status;
           actionCell.innerHTML = actionValue;
 
         }

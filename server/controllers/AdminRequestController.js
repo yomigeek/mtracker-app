@@ -2,7 +2,11 @@ import database from '../models/database';
 
 class AdminRequestController {
   static getAllRequests(req, res) {
-    const dbQuery = ('SELECT title, description, priority, values FROM requests INNER JOIN request_status ON requests.status = request_status.id');
+    const dbQuery = (`SELECT title, description, priority, values, requests.userid, requests.status, requests.id, username 
+    FROM requests 
+      INNER JOIN request_status ON requests.status = request_status.id
+      INNER JOIN users ON requests.userid = users.id
+    ORDER BY requests.status`);
 
     database.query(dbQuery, (err, response) => {
       if (err) {

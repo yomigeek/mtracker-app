@@ -35,7 +35,7 @@ class RequestsController {
         return res.status(400).json({
 
           status: 'fail',
-          message: 'User does not have a reqeuest yet!',
+          message: 'User does not have a request yet!',
         });
       }
 
