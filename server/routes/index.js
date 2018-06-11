@@ -48,8 +48,12 @@ routes.put(
   '/users/requests/:requestId', CheckRequestId.checker,
   auth, CheckRequest.existingRequest, userRequestValidate, RequestsController.editRequest,
 );
+
+
 // Get all requests by ADMIN
 routes.get('/requests', auth, CheckRole.checkIfAdmin, AdminRequestController.getAllRequests);
+// Get a single request detail
+routes.get('/requests/:requestId', CheckRequestId.checker, auth, CheckRole.checkIfAdmin, AdminRequestController.getRequestById);
 // Approve User Request
 routes.put(
   '/requests/:requestId/approve', CheckRequestId.checker, auth, CheckRole.checkIfAdmin,

@@ -30,24 +30,56 @@ class AdminRequestController {
     });
   }
 
+
+  static getRequestById(req, res) {
+    const dbQuery = (`SELECT requests.title, requests.userid, requests.description, 
+    requests.priority, values, requests.id, requests.status, username FROM requests 
+    INNER JOIN request_status ON requests.status = request_status.id 
+    INNER JOIN users ON requests.userid = users.id
+    WHERE requests.id= '${req.params.requestId}' `);
+
+    database.query(dbQuery, (err, response) => {
+      if (err) {
+        throw err;
+      } else if (response.rows.length < 1) {
+        return res.status(404).json({
+
+          status: 'fail',
+          message: 'This request does not exist!',
+        });
+      }
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Requests found',
+        data: {
+          requests: response.rows[0],
+        },
+      });
+    });
+  }
+
   static adminRequestProcess(req, res) {
     let dbQuery;
     let failMessage;
     let succesMessage;
     const requestProcessByAdmin = res.locals.value;
-    const approveDbQuery = (`UPDATE requests SET status = ${2}  WHERE id = '${req.params.requestId}' AND status = ${1} RETURNING *`);
+    const approveDbQuery = (`UPDATE requests SET status = ${2}  
+    WHERE id = '${req.params.requestId}' AND (status = ${1} OR status = ${3}) RETURNING *`);
 
-    const declineDbQuery = (`UPDATE requests SET status = ${3}  WHERE id = '${req.params.requestId}' AND (status = ${1} OR status = ${2}) RETURNING *`);
+    const declineDbQuery = (`UPDATE requests SET status = ${3}  
+    WHERE id = '${req.params.requestId}' AND (status = ${1} OR status = ${2}) RETURNING *`);
 
-    const resolveDbQuery = (`UPDATE requests SET status = ${4}  WHERE id = '${req.params.requestId}' AND status = ${2} RETURNING *`);
+    const resolveDbQuery = (`UPDATE requests SET status = ${4}  
+    WHERE id = '${req.params.requestId}' AND status = ${2} RETURNING *`);
 
     if (requestProcessByAdmin == 'approve') {
       dbQuery = approveDbQuery;
-      failMessage = 'This process is not on pending, so cannot be approved!';
+      failMessage = 'This process cannot be approved!';
       succesMessage = 'This Request has been approved successfully!';
     } else if (requestProcessByAdmin == 'decline') {
       dbQuery = declineDbQuery;
-      failMessage = 'This process is not on pending, so cannot be declined!';
+      failMessage = 'This process cannot be declined!';
       succesMessage = 'This Request has been declined successfully!';
     } else if (requestProcessByAdmin == 'resolve') {
       dbQuery = resolveDbQuery;
