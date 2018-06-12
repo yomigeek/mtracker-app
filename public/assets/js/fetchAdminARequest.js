@@ -41,7 +41,6 @@ function loadRequests(event) {
       else {
         
         const requests = data.data.requests;
-        console.log(requests.status);
         htmlElementDisplay('request-details-box', 'block');
         htmlElementDisplay('error', 'none');
 
