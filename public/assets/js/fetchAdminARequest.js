@@ -18,7 +18,14 @@ htmlElementDisplay('request-details-box', 'none');
 htmlElementDisplay('approve-button', 'none');
 htmlElementDisplay('decline-button', 'none')
 htmlElementDisplay('resolve-button', 'none');
+htmlElementDisplay('loader', 'none');
+htmlElementDisplay('loader-img', 'none');
+htmlElementDisplay('resolve-success', 'none');
+htmlElementDisplay('approve-success', 'none');
+htmlElementDisplay('approve-fail', 'none');
+
 innerHtmlDisplay('request-id', getRequestId);
+
 
 loadRequests();
 
@@ -70,4 +77,50 @@ function loadRequests(event) {
     }
     )
     .catch((err) => console.log(err))
+}
+
+
+
+function requestAction(actionType) {
+
+  let fetchActionUrl;
+  let notification;
+
+  if (actionType == 1) {
+      fetchActionUrl = BASE_URL + '/api/v1/requests/'+ getRequestId + '/approve';
+      notification = htmlElementDisplay('approve-success', 'block');
+
+  }
+
+  innerHtmlDisplay('loader-img', '<img src="./assets/images/loader2.gif" class="loader-img" />');
+  innerHtmlDisplay('loader', '...Approving Request...');
+  htmlElementDisplay('request-details-box', 'none');
+
+  fetch(fetchActionUrl, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": token,
+      },
+    }).then((response) => { return response.json() })
+      .then((data) => {
+        if (data.status == 'fail') {
+          
+          htmlElementDisplay('request-details-box', 'none');
+          htmlElementDisplay('error', 'block');
+          innerHtmlDisplay('error', data.message);
+        }
+        else {
+          
+          htmlElementDisplay('request-details-box', 'none');
+          htmlElementDisplay('error', 'none');
+          htmlElementDisplay('loader', 'none');
+          htmlElementDisplay('loader-img', 'none');
+          notification;
+
+          setTimeout('window.location.href = "/view_request_admin.html?requestId='+ getRequestId +'"',3000); // milliseconds
+        }
+      }
+      )
+      .catch((err) => console.log(err))
 }

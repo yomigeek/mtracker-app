@@ -257,7 +257,7 @@ a:hover {
 
 .approve-category-panel {
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   width: 300px;
   padding: 20px;
   background: #3BB75E;
@@ -275,6 +275,8 @@ a:hover {
   color: #fff;
   border-radius: 8px;
   font-size: 13px;
+  margin-bottom: 25px;
+
 }
 
 .category-panel-header {
@@ -489,4 +491,25 @@ and also iPads specifically.
   margin-bottom: 50px;
   font-weight: bold;
 
+}
+
+#loader {
+
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+  color: #011b33;
+  font-weight: bold;
+}
+
+#loader-img {
+  margin: 0 auto; 
+  margin-top: 50px;
+  text-align: center;
+}
+.loader-img {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px; 
+  text-align: center;
 }

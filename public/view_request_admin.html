@@ -38,14 +38,19 @@
   </p>
   <div id="container">
 
-    <div class="approve-category-panel">
-      Request Approved! Check pending request to resolve.
+    <div class="approve-category-panel" id="approve-success">
+      Request Approved! Page will refresh after 3 seconds.
     </div>
-    <div class="decline-category-panel">
-      Request Declined! Requester will be notified shortly.
+    <div class="decline-category-panel" id="approve-fail">
+      Request Declined! Page will refresh after 3 seconds.
+    </div>
+    <div class="approve-category-panel" id="resolve-success">
+      Request Resolved! Page will refresh after 3 seconds.
     </div>
 
     <p id="error" class="error">...</p>
+    <p id="loader-img">...</p>
+    <p id="loader">...</p>
 
     <div class="details-container" id="request-details-box">
 
@@ -91,9 +96,9 @@
 
 
       <div>
-        <button class="approve-button" id="approve-button" onclick="approveRequest() ">Approve</button>
-        <button class="decline-button" id="decline-button" onclick="declineRequest() ">Decline</button>
-        <button class="resolve-button" id="resolve-button" onclick="">Resolve</button>
+        <button class="approve-button" id="approve-button" onclick="requestAction(1) ">Approve Request</button>
+        <button class="decline-button" id="decline-button" onclick="requestAction(2) ">Decline Request</button>
+        <button class="resolve-button" id="resolve-button" onclick="requestAction(3) ">Resolve Request</button>
         
       </div>
     </div>
@@ -102,8 +107,6 @@
   </div>
 
   <p class="footer">© 2018. M-tracker.</p>
-
-  <script src="./assets/js/script.js"></script>
 
   <script src="./assets/js/fetchAdminARequest.js"></script>
 

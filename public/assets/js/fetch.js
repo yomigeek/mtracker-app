@@ -37,7 +37,6 @@ function userLogin(event) {
 
         localStorage.setItem("token", data.data.mytoken);
         localStorage.setItem("name", data.data.username);
-        console.log(data.data.role);
 
         if (data.data.role == 'user') {
           window.location.href = '/user_dashboard.html';
