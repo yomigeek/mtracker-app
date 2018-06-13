@@ -1,9 +1,6 @@
 
 const BASE_URL = 'https://mtrack-app.herokuapp.com';
 
-const token = localStorage.getItem("token");
-
-
 const innerHtmlDisplay = (htmlId, display) => {
   return document.getElementById(htmlId).innerHTML = display;
 }

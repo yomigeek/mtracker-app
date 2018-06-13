@@ -15,7 +15,7 @@
   <div class="topnav">
     <p>M-Tracker</p>
 
-    <a href="login.html">Logout</a>
+    <a href="logout.html">Logout</a>
     <a href="#">Profile</a>
     <a href="user_dashboard.html">Home</a>
     <a href="#">
@@ -37,9 +37,6 @@
   <b class="form-link-color"> Select Menu: </b>
   <select name="forma" onchange="location = this.value;" >
     <option value="user_dashboard.html">MY REQUESTS</option>
-    <option value="user_approved_dashboard.html">APPROVED REQUESTS</option>
-    <option value="user_cancelled_dashboard.html">DECLINED REQUESTS</option>
-    <option value="user_resolved_dashboard.html">RESOLVED REQUESTS</option>
   </select>
 
   </p>
@@ -87,13 +84,9 @@
 
 
 
-  <script src="./assets/js/fetchAllRequests.js">
-
-  </script>
-  
-  <script src="./assets/js/script.js">
-
-  </script>
+  <script src="./assets/js/checktoken.js"></script>
+  <script src="./assets/js/fetchAllRequests.js"></script>
+  <script src="./assets/js/script.js"></script>
 
 </body>
 

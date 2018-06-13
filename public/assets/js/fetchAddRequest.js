@@ -2,8 +2,6 @@ document.getElementById('request-form').addEventListener('submit', addRequest);
 
 const baseUrl = 'https://mtrack-app.herokuapp.com';
 
-const token = localStorage.getItem("token");
-
 const htmlElementDisplay = (htmlId, displayStyle) => {
   document.getElementById(htmlId).style.display = displayStyle;
 }

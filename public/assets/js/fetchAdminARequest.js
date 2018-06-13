@@ -96,6 +96,11 @@ function requestAction(actionType) {
     notification = htmlElementDisplay('approve-fail', 'block');
 
   }
+  if (actionType == 3) {
+    fetchActionUrl = BASE_URL + '/api/v1/requests/'+ getRequestId + '/resolve';
+    notification = htmlElementDisplay('resolve-success', 'block');
+  }
+
   innerHtmlDisplay('loader-img', '<img src="./assets/images/loader2.gif" class="loader-img" />');
   innerHtmlDisplay('loader', '...Approving Request...');
   htmlElementDisplay('request-details-box', 'none');

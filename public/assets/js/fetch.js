@@ -33,8 +33,6 @@ function userLogin(event) {
         htmlElementDisplay('postForm', 'none');
         htmlElementDisplay('form-footer', 'none');
 
-        // const url = document.getElementById('url').value;
-
         localStorage.setItem("token", data.data.mytoken);
         localStorage.setItem("name", data.data.username);
 
