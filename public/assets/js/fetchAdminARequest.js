@@ -1,7 +1,5 @@
 const BASE_URL = 'https://mtrack-app.herokuapp.com';
 
-const token = localStorage.getItem("token");
-
 const pageUrl = window.location.href;
 const getRequestId = pageUrl.charAt(pageUrl.length - 1);
 
