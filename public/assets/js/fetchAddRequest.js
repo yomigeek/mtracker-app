@@ -6,19 +6,23 @@ const htmlElementDisplay = (htmlId, displayStyle) => {
   document.getElementById(htmlId).style.display = displayStyle;
 }
 
-htmlElementDisplay('request-create', 'none');
-htmlElementDisplay('request-success', 'none');
-htmlElementDisplay('request-fail', 'none');
+const innerHtmlDisplay = (htmlId, display) => {
+  return document.getElementById(htmlId).innerHTML = display;
+}
+
+htmlElementDisplay('show-request-create', 'none');
+htmlElementDisplay('show-request-success', 'none');
+htmlElementDisplay('show-request-fail', 'none');
 htmlElementDisplay('error', 'none');
-
-
 
 function addRequest(event) {
 
-  htmlElementDisplay('request-create', 'block');
+  innerHtmlDisplay('show-request-create', '<div class="approve-category-panel" id="request-create">Creating request....</div>');
+  htmlElementDisplay('show-request-create', 'block');
   htmlElementDisplay('request-details-box', 'none');
-  htmlElementDisplay('request-fail', 'none');
-  htmlElementDisplay('request-success', 'none');
+  htmlElementDisplay('show-request-fail', 'none');
+  htmlElementDisplay('show-request-success', 'none');
+  htmlElementDisplay('error', 'none');
 
   event.preventDefault();
 
@@ -38,15 +42,17 @@ function addRequest(event) {
 
       if (data.status == 'success') {
 
-        htmlElementDisplay('request-success', 'block');
+        innerHtmlDisplay('show-request-success', '<div class="approve-category-panel" id="request-success">Request Created Succesfully!</div>');
+        htmlElementDisplay('show-request-success', 'block');
         htmlElementDisplay('request-details-box', 'block');
-        htmlElementDisplay('request-create', 'none');
+        htmlElementDisplay('show-request-create', 'none');
 
 
       } else {
 
-        htmlElementDisplay('request-create', 'none');
-        htmlElementDisplay('request-fail', 'block');
+        innerHtmlDisplay('show-request-fail', '<div class="decline-category-panel" id="request-fail">Creating Request failed!</div>');
+        htmlElementDisplay('show-request-create', 'none');
+        htmlElementDisplay('show-request-fail', 'block');
         htmlElementDisplay('request-details-box', 'block');
         htmlElementDisplay('error', 'block');
         document.getElementById('error').innerHTML = data.message;
