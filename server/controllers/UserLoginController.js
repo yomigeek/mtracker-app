@@ -11,7 +11,7 @@ class UserLoginController {
         return res.status(400).json({
 
           status: 'fail',
-          message: 'Invalid Email!',
+          message: 'Invalid Login details!',
         });
       }
       const comparedpassword = bcrypt
