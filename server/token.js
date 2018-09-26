@@ -16,8 +16,10 @@ class Token {
    */
   static authToken(userInfo) {
     const appToken = jwt.sign(
-      JSON.stringify(userInfo),
-      secret,
+      userInfo,
+      secret, {
+        expiresIn,
+      },
     );
     return appToken;
   }

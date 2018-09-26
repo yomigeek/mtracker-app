@@ -42,4 +42,3 @@ class UserLoginController {
 }
 
 export default UserLoginController;
-
